@@ -1317,8 +1317,16 @@ class CommunityProfileController extends CommunityBaseController {
         $model = $this->getModel('profile');
         $my = CFactory::getUser();
 
-        // Test if userid is 0, check if the user is viewing its own profile.
-        if ($userid == 0 && $my->id != 0) {
+	    /**
+	     * Cambios redireccion
+	     */
+	    if($my->id == 0){
+		    $mainframe = JFactory::getApplication();
+		    $mainframe->redirect(CRoute::_('index.php?option=com_community&view=register&task=register', false));
+	    }
+
+	    // Test if userid is 0, check if the user is viewing its own profile.
+	    if ($userid == 0 && $my->id != 0) {
             $userid = $my->id;
 
             // We need to set the 'userid' var so that other code that uses
@@ -1777,6 +1785,8 @@ class CommunityProfileController extends CommunityBaseController {
         $my = CFactory::getUser();
 
         if ($my->id == 0) {
+	        /*$mainframe = JFactory::getApplication();
+	        $mainframe->redirect(CRoute::_('index.php?option=com_community&view=register&task=register', false));*/
             return $this->blockUnregister();
         }
 
