@@ -1,0 +1,119 @@
+/**
+* @copyright (C) 2013 iJoomla, Inc. - All rights reserved.
+* @license GNU General Public License, version 2 (http://www.gnu.org/licenses/gpl-2.0.html)
+* @author iJoomla.com <webmaster@ijoomla.com>
+* @url https://www.jomsocial.com/license-agreement
+* The PHP code portions are distributed under the GPL license. If not otherwise stated, all images, manuals, cascading style sheets, and included JavaScript *are NOT GPL, and are released under the IJOOMLA Proprietary Use License v1.0
+* More info at https://www.jomsocial.com/license-agreement
+*/
+
+@toolbarActive			: #647F29;
+@toolbarActiveBorder	: #4f661d;
+@toolbarBarHeight		: 6px;
+@toolbarMargin			: 20px;
+
+html {
+	margin-top:50px !important;
+}
+
+.cMenu-Icon-Responsive {
+	z-index:9999999;
+	position:fixed;
+	top:0;
+	left:0;
+	right:0;
+	.gradient-vertical(#fff,#eee);
+	border:none;
+	border-bottom:1px solid #ccc;
+	margin:0px;
+	padding:8px;
+	.box-shadow(0px 1px 3px rgba(0,0,0,0.1));
+	li {
+		padding:3px;
+		display:inline-block;
+		&:hover {
+			background: #e8e8d8;
+			.border-radius(3px);
+		}
+	}
+}
+
+.cDropdown {
+	position:absolute;
+	right:8px;
+	top:8px;
+	background:none;
+	&:hover { 
+		background:none !important;
+		}
+	}
+	.dropdown-btn {
+		color:#fff;
+		font-size:20px;
+		background:#404040;
+		padding:2px 8px 4px;
+		.border-radius(2px);
+		text-decoration:none;
+	}
+
+.cDropdown-area {
+	display:none;
+	margin:0px -8px -8px;
+	li:hover {
+		background:none;
+		.border-radius(0px);
+	}
+	.cDropdown-menu {
+		.cMenu-Text {
+			margin:0px;
+			padding:0px;
+			display:block;
+			+ .cMenu-Text {
+				border-top:1px solid #333;
+			}
+			a {
+				display:block;
+				background:#404040;
+				padding:0px 10px;
+				color:white;
+				text-decoration:none;
+				margin-bottom:0px;
+				height:36px;
+				line-height:36px;
+				&:hover {
+					background:#647F29;
+					.border-radius(0px);
+					border:none;
+				}
+			}
+			&.cHas-Childs {
+				&:hover {
+					li { display:block;}
+				}
+					li {
+						padding:0px;
+						margin:0px;
+						display:none;
+						a {
+							color:#eee;
+							display:block;
+							background:#333;
+							border-top:1px solid #2e2e2e;
+							&:hover {
+								background:#4f661d;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+.cToolBar {
+	display:none;
+	+ .cToolBox {
+		margin-top:20px;
+		border:1px solid #ccc;
+		.border-radius(3px);
+	}
+}

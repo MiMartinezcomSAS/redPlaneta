@@ -1,0 +1,402 @@
+/**
+* @copyright (C) 2013 iJoomla, Inc. - All rights reserved.
+* @license GNU General Public License, version 2 (http://www.gnu.org/licenses/gpl-2.0.html)
+* @author iJoomla.com <webmaster@ijoomla.com>
+* @url https://www.jomsocial.com/license-agreement
+* The PHP code portions are distributed under the GPL license. If not otherwise stated, all images, manuals, cascading style sheets, and included JavaScript *are NOT GPL, and are released under the IJOOMLA Proprietary Use License v1.0
+* More info at https://www.jomsocial.com/license-agreement
+*/
+
+// Grays
+// -------------------------
+@black:                 #000;
+@grayDarker:            #222;
+@grayDark:              #333;
+@gray:                  #555;
+@grayLight:             #999;
+@grayLighter:           #fafafa;
+@white:                 #fff;
+
+
+// Accent colors
+// -------------------------
+@blue:                  #049cdb;
+@blueDark:              #0064cd;
+@green:                 #46a546;
+@red:                   #9d261d;
+@yellow:                #ffc40d;
+@orange:                #f89406;
+@pink:                  #c3325f;
+@purple:                #7a43b6;
+
+
+// Scaffolding
+// -------------------------
+@bodyBackground:        @white;
+@textColor:             @grayDark;
+
+
+// Links
+// -------------------------
+@linkColor:             #ccc;
+@linkColorHover:        darken(@linkColor, 15%);
+
+
+// Typography
+// -------------------------
+@sansFontFamily:        "Helvetica Neue", Helvetica, Arial, sans-serif;
+@serifFontFamily:       Georgia, "Times New Roman", Times, serif;
+@monoFontFamily:        Monaco, Menlo, Consolas, "Courier New", monospace;
+
+@baseFontSize:          14px;
+@baseFontFamily:        @sansFontFamily;
+@baseLineHeight:        20px;
+@altFontFamily:         @serifFontFamily;
+
+@headingsFontFamily:    inherit; // empty to use BS default, @baseFontFamily
+@headingsFontWeight:    bold;    // instead of browser default, bold
+@headingsColor:         inherit; // empty to use BS default, @textColor
+
+
+// Component sizing
+// -------------------------
+// Based on 14px font-size and 20px line-height
+
+@fontSizeLarge:         @baseFontSize * 1.25; // ~18px
+@fontSizeSmall:         @baseFontSize * 0.85; // ~12px
+@fontSizeMini:          @baseFontSize * 0.75; // ~11px
+
+@paddingLarge:          11px 19px; // 44px
+@paddingSmall:          2px 10px;  // 26px
+@paddingMini:           0 6px;   // 22px
+
+@baseBorderRadius:      4px;
+@borderRadiusLarge:     6px;
+@borderRadiusSmall:     3px;
+
+
+// Tables
+// -------------------------
+@tableBackground:                   transparent; // overall background-color
+@tableBackgroundAccent:             #f9f9f9; // for striping
+@tableBackgroundHover:              #f5f5f5; // for hover
+@tableBorder:                       #ddd; // table and cell border
+
+// Buttons
+// -------------------------
+@btnBackground:                     @grayDarker;
+@btnBackgroundHighlight:            @grayDarker;
+@btnBorder:                         @grayDarker;
+@btnTextColor: 											#eee;
+@btnTextShadow: 										none;
+
+@btnPrimaryBackground:              #3498db;
+@btnPrimaryBackgroundHighlight:     #3498db; //spin(@btnPrimaryBackground, 20%);
+
+@btnInfoBackground:                 #5bc0de;
+@btnInfoBackgroundHighlight:        #2f96b4;
+
+@btnSuccessBackground:              #62c462;
+@btnSuccessBackgroundHighlight:     #51a351;
+
+@btnWarningBackground:              lighten(@orange, 15%);
+@btnWarningBackgroundHighlight:     @orange;
+
+@btnDangerBackground:               #ee5f5b;
+@btnDangerBackgroundHighlight:      #bd362f;
+
+@btnInverseBackground:              #444;
+@btnInverseBackgroundHighlight:     @grayDarker;
+
+
+// Forms
+// -------------------------
+@inputBackground:               #222;
+@inputBorder:                   #444;
+@inputBorderRadius:             @baseBorderRadius;
+@inputDisabledBackground:       @grayLighter;
+@formActionsBackground:         #f5f5f5;
+@inputHeight:                   @baseLineHeight + 10px; // base line-height + 8px vertical padding + 2px top/bottom border
+@inputTextColor: 				#ccc;
+
+// Dropdowns
+// -------------------------
+@dropdownBackground:            @white;
+@dropdownBorder:                rgba(0,0,0,.2);
+@dropdownDividerTop:            #e5e5e5;
+@dropdownDividerBottom:         @white;
+
+@dropdownLinkColor:             @grayDark;
+@dropdownLinkColorHover:        @white;
+@dropdownLinkColorActive:       @white;
+
+@dropdownLinkBackgroundActive:  @linkColor;
+@dropdownLinkBackgroundHover:   @dropdownLinkBackgroundActive;
+
+
+
+// COMPONENT VARIABLES
+// --------------------------------------------------
+
+
+// Z-index master list
+// -------------------------
+// Used for a bird's eye view of components dependent on the z-axis
+// Try to avoid customizing these :)
+@zindexDropdown:          1000;
+@zindexPopover:           1010;
+@zindexTooltip:           1030;
+@zindexFixedNavbar:       1030;
+@zindexModalBackdrop:     1040;
+@zindexModal:             1050;
+
+
+// Sprite icons path
+// -------------------------
+@iconSpritePath:          "../img/glyphicons-halflings.png";
+@iconWhiteSpritePath:     "../img/glyphicons-halflings-white.png";
+
+
+// Input placeholder text color
+// -------------------------
+@placeholderText:         @grayLight;
+
+
+// Hr border color
+// -------------------------
+@hrBorder:                @grayLighter;
+
+
+// Horizontal forms & lists
+// -------------------------
+@horizontalComponentOffset:       180px;
+
+
+// Wells
+// -------------------------
+@wellBackground:                  #f5f5f5;
+
+
+// Navbar
+// -------------------------
+@navbarCollapseWidth:             979px;
+@navbarCollapseDesktopWidth:      @navbarCollapseWidth + 1;
+
+@navbarHeight:                    40px;
+@navbarBackgroundHighlight:       #444444 !important;
+@navbarBackground:                darken(@navbarBackgroundHighlight, 5%);
+@navbarBorder:                    darken(@navbarBackground, 12%);
+
+@navbarText:                      #cecece;
+@navbarLinkColor:                 #cecece;
+@navbarLinkColorHover:            #efefef;
+@navbarLinkColorActive:           #f1f1f1;
+@navbarLinkBackgroundHover:       transparent;
+@navbarLinkBackgroundActive:      darken(@navbarBackground, 5%);
+
+@navbarBrandColor:                @navbarLinkColor;
+
+// Pagination
+// -------------------------
+@paginationBackground:                #fff;
+@paginationBorder:                    #ddd;
+@paginationActiveBackground:          #f5f5f5;
+
+
+// Hero unit
+// -------------------------
+@heroUnitBackground:              @grayLighter;
+@heroUnitHeadingColor:            inherit;
+@heroUnitLeadColor:               inherit;
+
+
+// Form states and alerts
+// -------------------------
+@warningText:             #c09853;
+@warningBackground:       #fcf8e3;
+@warningBorder:           darken(spin(@warningBackground, -10), 3%);
+
+@errorText:               #b94a48;
+@errorBackground:         #f2dede;
+@errorBorder:             darken(spin(@errorBackground, -10), 3%);
+
+@successText:             #468847;
+@successBackground:       #dff0d8;
+@successBorder:           darken(spin(@successBackground, -10), 5%);
+
+@infoText:                #3a87ad;
+@infoBackground:          #d9edf7;
+@infoBorder:              darken(spin(@infoBackground, -10), 7%);
+
+
+// Tooltips and popovers
+// -------------------------
+@tooltipColor:            #fff;
+@tooltipBackground:       #000;
+@tooltipArrowWidth:       5px;
+@tooltipArrowColor:       @tooltipBackground;
+
+@popoverBackground:       #fff;
+@popoverArrowWidth:       10px;
+@popoverArrowColor:       #fff;
+@popoverTitleBackground:  darken(@popoverBackground, 3%);
+
+// Special enhancement for popovers
+@popoverArrowOuterWidth:  @popoverArrowWidth + 1;
+@popoverArrowOuterColor:  rgba(0,0,0,.25);
+
+
+
+// GRID
+// --------------------------------------------------
+
+
+// Default 940px grid
+// -------------------------
+@gridColumns:             12;
+@gridColumnWidth:         60px;
+@gridGutterWidth:         20px;
+@gridRowWidth:            (@gridColumns * @gridColumnWidth) + (@gridGutterWidth * (@gridColumns - 1));
+
+// 1200px min
+@gridColumnWidth1200:     70px;
+@gridGutterWidth1200:     30px;
+@gridRowWidth1200:        (@gridColumns * @gridColumnWidth1200) + (@gridGutterWidth1200 * (@gridColumns - 1));
+
+// 768px-979px
+@gridColumnWidth768:      42px;
+@gridGutterWidth768:      20px;
+@gridRowWidth768:         (@gridColumns * @gridColumnWidth768) + (@gridGutterWidth768 * (@gridColumns - 1));
+
+
+// Fluid grid
+// -------------------------
+@fluidGridColumnWidth:    percentage(@gridColumnWidth/@gridRowWidth);
+@fluidGridGutterWidth:    percentage(@gridGutterWidth/@gridRowWidth);
+
+// 1200px min
+@fluidGridColumnWidth1200:     percentage(@gridColumnWidth1200/@gridRowWidth1200);
+@fluidGridGutterWidth1200:     percentage(@gridGutterWidth1200/@gridRowWidth1200);
+
+// 768px-979px
+@fluidGridColumnWidth768:      percentage(@gridColumnWidth768/@gridRowWidth768);
+@fluidGridGutterWidth768:      percentage(@gridGutterWidth768/@gridRowWidth768);
+
+// Jomsocial Variable
+// -------------------
+
+// login area
+@login-background:@grayDarker;
+@login-border:none;
+@login-border-radius:0px 0px @borderRadiusLarge @borderRadiusLarge;
+@login-reminder-link:#ccc;
+
+// submenu
+@submenu-background:@gray;
+@submenu-border:solid 1px @grayDarker;
+@submenu-border-menu:none;
+@submenu-link-color:#ccc;
+
+// focus area
+@focus-border:none;
+@focus-border-radius: @baseBorderRadius;
+@focus-avatar-background: #fff;
+@focus-content-background: lighten(@navbarBackground,5%);
+@focus-gradient: '../images/cover/gradient.png';
+@focus-title-color: #fff;
+@focus-menu-color: @navbarLinkColor ;
+@focus-action-background : @navbarBackground;
+@focus-action-border : darken(@navbarBackground,5%);
+
+// omnibox ( post/status creator )
+@omnibox-background:@navbarBackground;
+@omnibox-border:none;
+@omnibox-view-background:lighten(@navbarBackground,8%);
+@omnibox-view-border:none;
+@omnibox-tab-active-background:@omnibox-view-background;
+@omnibox-tab-border:none;
+@omnibox-message-background:@omnibox-view-background;
+@omnibox-message-color:#ccc;
+
+// Stream
+@stream-spacing			: 10px;
+@stream-margin			: 8px;
+@stream-border			: transparent;
+@stream-avatar			: 48px;
+@stream-video			: 112px;
+@stream-line			: 16px;
+@stream-avatar-s		: 32px;
+@stream-respond-background:@grayDarker;
+@stream-respond-border:none;
+@stream-title-border:none;
+
+// Wall
+@wall-comment-border:none;
+
+// Page
+@cpage-tabs-border-bottom:none;
+
+// Index Listing
+@index-background : rgba(255,255,255,0.2);
+@index-shadow:0 0 1px rgba(255, 255, 255, 0.4);
+
+// Toolbox
+@toolbox-background:@login-background;
+@toolbox-border:none;
+
+// Module
+@module-border:none;
+@module-header-color :@linkColor;
+@module-header-border-bottom:none;
+@module-footer-border-top:none;
+@app-box-background:#333;
+@app-box-header-color:#eee;
+@app-box-content-color:#ccc;
+@app-box-filter-color-active:#ccc;
+
+// Form
+@label-size		: 140px;
+@field-size		: 140px + 15;
+@form-space		: 15px;
+@form-seperator	: #222;
+
+// Featured Area
+@featuredFat		: 20px;
+@featuredCover		: 128px;
+@featured-color:#eee;
+@featured-b-color:#ccc;
+@featured-top-background:#666;
+@featured-top-border:1px solid #333;
+@featured-top-color:#eee;
+@featured-middle-background:#666;
+@featured-middle-border:1px solid #333;
+@featured-bottom-background:#444;
+@featured-bottom-border:1px solid #333;
+@featured-bottom-border-bottom:#222;
+@featured-meta-color:#ccc;
+
+//Media
+@cmedia-avatar-background:#666;
+@cmedia-option-background:#444;
+@cmedia-option-border:1px solid #222;
+@cmedia-option-color:#ccc;
+
+// Photo Album Cover
+@photo-album-cover-background:#333;
+@photo-album-cover-border:1px solid #222;
+@photo-avatar-background:#666;
+
+// Application Box
+@app-box-list-border:none;
+
+// Calendar Module
+@calendar-background-color:#222;
+@calendar-text-color: #eee;
+@calendar-selected-text-color:#eee;
+@calendar-border:none;
+@calendar-event-date-color:#fff;
+@calendar-running-color:#555 ;
+@calendar-month-color:#555;
+
+// others
+@filter-border-bottom:none; // cFilter

@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE install SYSTEM "http://dev.joomla.org/xml/1.5/module-install.dtd">
+<extension version="2.5" type="module" client="site" method="upgrade">
+	<name>Comunidad - Dime Hola</name>
+	<author>JomSocial Team</author>
+	<creationDate>March 2011</creationDate>
+	<copyright>Copyright (C) 2008 - 2010 JomSocial. All rights reserved.</copyright>
+	<license>http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL</license>
+	<authorEmail>support@jomsocial.com</authorEmail>
+	<authorUrl>http://www.jomsocial.com</authorUrl>	
+	<version>3.0.5.3</version>
+	<description>Dime Hola</description>
+	<languages>
+		<language tag="en-GB">en-GB.mod_hellome.ini</language>
+		<language tag="es-ES">es-ES.mod_hellome.ini</language>
+	</languages>
+	<files>
+		<filename module="mod_hellome">mod_hellome.php</filename>
+		<filename>mod_hellome.xml</filename>
+		<filename>helper.php</filename>
+		<filename>style.css</filename>
+		<folder>tmpl</folder>
+	</files>
+	<params>
+		<param name="cache" type="hidden" default="0" label="Cache" description="Desactivar cache global." />
+		<param name="customCache" type="list" default="1" label="Cache" description="Seleccione si desea utilizar cahce.">
+			<option value="1">Si</option>
+			<option value="0">No</option>
+		</param>
+		<param name="show_avatar" type="list" default="1" label="Mostrar avatar" description="Seleccione si desea mostrar avatares.">
+			<option value="1">Si</option>
+			<option value="0">No</option>
+		</param>
+		<param name="show_karma" type="list" default="1" label="Mostrar Karma" description="Seleccione si desea mostrar karma.">
+			<option value="1">Si</option>
+			<option value="0">No</option>
+		</param>
+		<param name="enable_login" type="list" default="1" label="Opción de registro" description="Seleccione si desea mostrar el formulario de registro.">
+			<option value="1">Si</option>
+			<option value="0">No</option>
+		</param>
+		<param name="enable_facebookconnect" type="list" default="1" label="Conectar con Facebook" description="Seleccione si desea activar conectar con Facebook.">
+			<option value="1">Si</option>
+			<option value="0">No</option>
+		</param>
+		<param name="moduleclass_sfx" type="text" default="" label="Clase de Sufijo de Modulo" description="PARAMMODULECLASSSUFFIX" />
+	</params>
+	<config>
+		<fields name="params">
+			<fieldset name="basic">
+				<field name="cache" type="hidden" default="0" label="Cache" description="Desactivar cache global." />
+				<field name="customCache" type="list" default="1" label="Cache" description="Seleccione si desea utilizar cahce.">
+					<option value="1">Si</option>
+					<option value="0">No</option>
+				</field>
+				<field name="show_avatar" type="list" default="1" label="Mostrar avatar" description="Seleccione si desea mostrar avatares.">
+					<option value="1">Si</option>
+					<option value="0">No</option>
+				</field>
+				<field name="show_karma" type="list" default="1" label="Mostrar Karma" description="Seleccione si desea mostrar karma.">
+					<option value="1">Si</option>
+					<option value="0">No</option>
+				</field>
+				<field name="enable_login" type="list" default="1" label="Opción de registro" description="Seleccione si desea mostrar el formulario de registro.">
+					<option value="1">Si</option>
+					<option value="0">No</option>
+				</field>
+				<field name="enable_facebookconnect" type="list" default="1" label="Conectar con Facebook" description="Seleccione si desea activar conectar con Facebook.">
+					<option value="1">Si</option>
+					<option value="0">No</option>
+				</field>
+                <field name="enable_alert" type="list" default="1" label="Mostrar alertas" description="">
+                    <option value="1">Si</option>
+                    <option value="0">No</option>
+                </field>
+                <field name="enable_last_status" type="list" default="1" label="Mostrar ultimas actualizaciones de estado" description="">
+                    <option value="1">Si</option>
+                    <option value="0">No</option>
+                </field>
+                <field name="enable_edit_status" type="list" default="1" label="Mostrar link editar" description="">
+                    <option value="1">Si</option>
+                    <option value="0">No</option>
+                </field>
+                <field name="enable_menu" type="list" default="1" label="Mostrar menu" description="">
+                    <option value="1">Si</option>
+                    <option value="0">No</option>
+                </field>  				
+				<field name="moduleclass_sfx" type="text" default="" label="Clase de Sufijo de Modulo" description="PARAMMODULECLASSSUFFIX" />
+			</fieldset>
+		</fields>
+	</config>
+</extension>

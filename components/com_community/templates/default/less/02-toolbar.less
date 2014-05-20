@@ -1,0 +1,70 @@
+/**
+* @copyright (C) 2013 iJoomla, Inc. - All rights reserved.
+* @license GNU General Public License, version 2 (http://www.gnu.org/licenses/gpl-2.0.html)
+* @author iJoomla.com <webmaster@ijoomla.com>
+* @url https://www.jomsocial.com/license-agreement
+* The PHP code portions are distributed under the GPL license. If not otherwise stated, all images, manuals, cascading style sheets, and included JavaScript *are NOT GPL, and are released under the IJOOMLA Proprietary Use License v1.0
+* More info at https://www.jomsocial.com/license-agreement
+*/
+
+@toolbarActive			: #647F29;
+@toolbarActiveBorder	: #4f661d;
+@toolbarBarHeight		: 6px;
+@toolbarMargin			: 20px;
+
+// VARIABLES
+// =========
+
+@toolbar-button-padding:6px 12px;
+@toolbar-height:20px;
+@counter-background:#3498db;
+@counter-color:white;
+@counter-padding:4px 6px;
+@icon-area-padding:6px;
+
+.dropdown-menu {
+	margin-top:0px;
+}
+
+.js-toolbar {
+	.brand  {
+		display:none;
+	}
+	.navbar-inner {
+		padding:0px;
+		min-height:@toolbar-height;
+	}
+	.nav {
+		list-style-type:none;
+		margin:0px;
+		padding:0px;
+		> li {
+			> a {
+				line-height:@toolbar-height;
+				height:@toolbar-height;
+				padding:@toolbar-button-padding;
+				&.menu-icon {
+					padding:6px 4px;
+				}
+			}
+		}
+		.dropdown {
+			&:hover {
+				.dropdown-menu {
+					display:block;
+				}
+			}
+		}
+		&.hidden-desktop {
+			> li > a { padding:@icon-area-padding; }
+		}
+	}
+	.js-counter { 
+		background:@counter-background;
+		color:@counter-color;
+		padding:@counter-padding;
+		font-size:10px;
+		.border-radius(4px);
+	}
+
+}

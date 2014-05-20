@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE install SYSTEM "http://dev.joomla.org/xml/1.5/module-install.dtd">
+<extension version="2.5" type="module" client="site" method="upgrade">
+	<name>Comunidad - Últimos mensajes de grupo</name>
+	<author>JomSocial Team</author>
+	<creationDate>March 2011</creationDate>
+	<copyright>Copyright (C) 2008 - 2010 JomSocial. All rights reserved.</copyright>
+	<license>http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL</license>
+	<authorEmail>support@jomsocial.com</authorEmail>
+	<authorUrl>http://www.jomsocial.com</authorUrl>	
+	<version>3.0.5.3</version>
+	<description>Mostrar la actividad del muro de los grupos</description>
+	<files>
+		<filename module="mod_latestgrouppost">mod_latestgrouppost.php</filename>
+		<filename>mod_latestgrouppost.xml</filename>
+		<filename>helper.php</filename>
+		<filename>index.html</filename>
+		<folder>tmpl</folder>
+	</files>
+	<languages>
+		<language tag="en-GB">en-GB.mod_latestgrouppost.ini</language>
+		<language tag="en-GB">en-GB.mod_latestgrouppost.sys.ini</language>
+		<language tag="es-ES">es-ES.mod_latestgrouppost.ini</language>
+		<language tag="es-ES">es-ES.mod_latestgrouppost.sys.ini</language>
+	</languages>
+	<params>
+		<param name="cache" type="list" default="0" label="Cache" description="Seleccione si desea usar la cache">
+			<option value="1">Usar global</option>
+			<option value="0">Sin cache</option>
+		</param>
+		<param name="count" type="text" default="5" label="Cantidad" description="Número por defecto de mensajes del muro a mostrar (Por defecto 5)" />
+		<param name="charcount" type="text" default="100" label="Cantidad de caracteres comentarios" description="Número de caracteres a mostrar en comentarios" />
+		<param name="afterlogin_setting" type="list" default="" label="Después de conectar" description="Para mostrar todos los grupos públicos o solo en los que el usuario participa" >
+			<option value="1">Mostrar mis grupos solo</option>
+			<option value="0">Mostrar todos los grupos</option>
+		</param>
+		<param name="moduleclass_sfx" type="text" default="" label="Clase de Sufijo del Modulo" description="PARAMMODULECLASSSUFFIX" />
+	</params>
+	<config>
+		<fields name="params">
+			<fieldset name="basic">
+				<field name="cache" type="list" default="0" label="Cache" description="Seleccione si desea usar la cache">
+					<option value="1">Usar global</option>
+					<option value="0">Sin cache</option>
+				</field>
+				<field name="count" type="text" default="5" label="Cantidad" description="Número por defecto de mensajes del muro a mostrar (Por defecto 5)" />
+				<field name="charcount" type="text" default="100" label="Cantidad de caracteres comentarios" description="Número de caracteres a mostrar en comentarios" />
+				<field name="afterlogin_setting" type="list" default="" label="Después de conectar" description="Para mostrar todos los grupos públicos o solo en los que el usuario participa" >
+					<option value="1">Mostrar mis grupos solo</option>
+					<option value="0">Mostrar todos los grupos</option>
+				</field>
+				<field name="moduleclass_sfx" type="text" default="" label="Clase de Sufijo del Modulo" description="PARAMMODULECLASSSUFFIX" />
+			</fieldset>
+		</fields>
+	</config>
+</extension>

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE install SYSTEM "http://dev.joomla.org/xml/1.5/module-install.dtd">
+<extension version="2.5" type="module" client="site" method="upgrade">
+	<name>Comunidad - Notificaciones</name>
+	<author>JomSocial Team</author>
+	<creationDate>March 2011</creationDate>
+	<copyright>Copyright (C) 2008 - 2010 JomSocial. All rights reserved.</copyright>
+	<license>http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL</license>
+	<authorEmail>support@jomsocial.com</authorEmail>
+	<authorUrl>http://www.jomsocial.com</authorUrl>	
+	<version>3.0.5.3</version>
+	<description>Este modulo muestra las tres notificaciones de JomSocial; notificaciones globales, solicitudes de amistad y mensajes privados. Por favor asegurate que este modulo es visible solo para los usaurios Registrados.</description>
+	<languages>
+		<language tag="en-GB">en-GB.mod_notify.ini</language>
+		<language tag="es-ES">es-ES.mod_notify.ini</language>
+	</languages>
+	<files>
+		<filename module="mod_notify">mod_notify.php</filename>
+		<filename>mod_notify.xml</filename>
+		<filename>helper.php</filename>
+		<filename>style.css</filename>
+		<folder>tmpl</folder>
+	</files>
+	<params>
+		<param name="cache" type="hidden" default="0" label="Cahe" description="Desactivar cache global." />
+		<param name="customCache" type="list" default="1" label="Cache" description="Seleccione si desea usar la cache.">
+			<option value="1">Si</option>
+			<option value="0">No</option>
+		</param>
+		<param name="show_global_notification" type="list" default="1" label="Mostrar Notificaciones Globales" description="Seleccione si desea mostrar las notificacines globales.">
+			<option value="1">Si</option>
+			<option value="0">No</option>
+		</param>
+		<param name="show_friend_request" type="list" default="1" label="Mostrar Solicitudes de Amistad" description="Seleccione si desea mostrar las solicitudes de amistad.">
+			<option value="1">Si</option>
+			<option value="0">No</option>
+		</param>
+		<param name="enable_private_message" type="list" default="1" label="Mostrar Mesnajes Privados" description="Seleccione si desea mostrar los mensajes privados.">
+			<option value="1">Si</option>
+			<option value="0">No</option>
+		</param>
+		<param name="moduleclass_sfx" type="text" default="" label="Clase de Sufijo del Modulo" description="PARAMMODULECLASSSUFFIX" />
+	</params>
+	<config>
+		<fields name="params">
+			<fieldset name="basic">
+				<field name="cache" type="hidden" default="0" label="Cahe" description="Desactivar cache global." />
+				<field name="customCache" type="list" default="1" label="Cache" description="Seleccione si desea usar la cache.">
+					<option value="1">Si</option>
+					<option value="0">No</option>
+				</field>
+				<field name="customCache" type="list" default="1" label="Cache" description="Seleccione si desea usar la cache.">
+					<option value="1">Si</option>
+					<option value="0">No</option>
+				</field>
+				<field name="show_global_notification" type="list" default="1" label="Mostrar Notificaciones Globales" description="Seleccione si desea mostrar las notificacines globales.">
+					<option value="1">Si</option>
+					<option value="0">No</option>
+				</field>
+				<field name="show_friend_request" type="list" default="1" label="Mostrar Solicitudes de Amistad" description="Seleccione si desea mostrar las solicitudes de amistad.">
+					<option value="1">Si</option>
+					<option value="0">No</option>
+				</field>
+				<field name="enable_private_message" type="list" default="1" label="Mostrar Mesnajes Privados" description="Seleccione si desea mostrar los mensajes privados.">
+					<option value="1">Si</option>
+					<option value="0">No</option>
+				</field>
+				<field name="moduleclass_sfx" type="text" default="" label="Clase de Sufijo del Modulo" description="PARAMMODULECLASSSUFFIX" />
+			</fieldset>
+		</fields>
+	</config>
+</extension>

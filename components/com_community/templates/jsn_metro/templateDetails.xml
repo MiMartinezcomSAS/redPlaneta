@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension version="1.5" type="template">
+	<name>JSN Metro</name>
+	<version>1.1.0</version>
+	<creationDate>Aug 2013</creationDate>
+	<author>JoomlaShine Team</author>
+	<authorEmail>support@joomlashine.com</authorEmail>
+	<authorUrl>http://www.joomlashine.com</authorUrl>
+	<copyright>Copyright 2008 - 2013 by JoomlaShine. All rights reserved</copyright>
+	<license>http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL</license>
+	<description>JSN Metro 1.1.0 template for JomSocial 3.x</description>
+	<params>
+		<param type="spacer" default="Applications" />
+		<param name="appsShowAuthor" type="radio" default="1" label="Show plugin author" description="::Display the plugin author">
+			<option value="1" name='Show'>Show</option>
+			<option value="0" name='Hide'>Hide</option>
+		</param>
+		<param name="colorTheme" type="list" default="Light" label="Color theme" description="::Set the style color">
+			<option value="green" name="Light">Light</option>
+			<option value="dark" name="Dark">Dark</option>
+		</param>
+
+	</params>
+</extension>

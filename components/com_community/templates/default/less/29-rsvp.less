@@ -1,0 +1,64 @@
+/**
+* @copyright (C) 2013 iJoomla, Inc. - All rights reserved.
+* @license GNU General Public License, version 2 (http://www.gnu.org/licenses/gpl-2.0.html)
+* @author iJoomla.com <webmaster@ijoomla.com>
+* @url https://www.jomsocial.com/license-agreement
+* The PHP code portions are distributed under the GPL license. If not otherwise stated, all images, manuals, cascading style sheets, and included JavaScript *are NOT GPL, and are released under the IJOOMLA Proprietary Use License v1.0
+* More info at https://www.jomsocial.com/license-agreement
+*/
+
+.cEvent-Rsvp
+{
+	display:inline-block;
+	.selector 
+	{
+		display: block;
+		position: relative;
+
+		span,
+		select,
+		option
+		{
+			color: #666;
+			font-family: Arial,sans-serif;
+			font-size: 12px;
+			font-weight: bold;
+			line-height: 14px;
+			height: 14px;
+			padding: 3px 6px;
+			text-indent: 25px;
+		}
+
+		span
+		{
+			display: block;
+		}
+		select
+		{
+			background: #f5f5f5;
+			border: 1px solid #ccc;
+			padding: 0;
+			margin: 0;
+			position: absolute;
+			left: -1px;
+			top: 0;
+			width: 100%;
+		}
+		option + option
+		{
+			border-top: 1px solid #ccc;
+		}
+
+		.attend,
+		.notAttend {
+			background-image: url('../images/rsvp.png');
+			background-repeat: no-repeat;
+		}
+		.attend {
+			background-position: 4px -4px;
+		}
+		.notAttend {
+			background-position: 4px -32px;
+		}
+	}
+}

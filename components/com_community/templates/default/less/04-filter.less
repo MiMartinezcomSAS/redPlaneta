@@ -1,0 +1,99 @@
+/**
+* @copyright (C) 2013 iJoomla, Inc. - All rights reserved.
+* @license GNU General Public License, version 2 (http://www.gnu.org/licenses/gpl-2.0.html)
+* @author iJoomla.com <webmaster@ijoomla.com>
+* @url https://www.jomsocial.com/license-agreement
+* The PHP code portions are distributed under the GPL license. If not otherwise stated, all images, manuals, cascading style sheets, and included JavaScript *are NOT GPL, and are released under the IJOOMLA Proprietary Use License v1.0
+* More info at https://www.jomsocial.com/license-agreement
+*/
+
+/**
+* COMMUNITY : FILTER TOOLBAR
+* Affected files:- \com_community\templates\default\filterbar.html.php
+*/
+.cFilter
+{
+	border-bottom: @filter-border-bottom;
+	font-size: 90%;
+	line-height: 15px;
+	padding: 0 0 15px;
+	margin: 0 0 20px;
+
+	.filters
+	{
+		display: inline-block;
+		
+		li
+		{
+			font-size:11px;
+
+			+ li
+			{
+				margin: 0 0 0 3px;
+			}
+			a
+			{
+				text-decoration: none;
+				display:inline-block;
+				padding:4px 6px;
+				border-radius:2px;
+
+				&:hover
+				{
+					background: none;
+					border: 0;
+					color: inherit;
+					text-decoration: underline;
+				}
+			}
+			&.active a,
+			&.active a:hover
+			{
+				background: #888;
+				color: #fff;
+				text-decoration: none;
+			}
+		}
+	}
+}
+
+
+.cTabsMenu
+{
+	//border-bottom: 1px solid #ddd;
+	font-size: 90%;
+	line-height: 15px;
+	padding: 0 0 15px;
+	margin: 0 0 20px;
+
+	li
+	{
+		+ li
+		{
+			margin:0 0 0 2px;
+		}
+
+		a
+		{
+			display: inline-block;
+			line-height: 20px;
+			padding:4px 8px;
+			.border-radius( 3px );
+
+			&:hover
+			{
+				background: #888;
+				color: #fff;
+				text-decoration: none;
+			}
+			&:focus,
+			&.selected
+			{
+				background: #666;
+				color: #fff;
+				text-decoration: none!important;
+				cursor: default;
+			}
+		}
+	}
+}

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE install SYSTEM "http://dev.joomla.org/xml/1.5/module-install.dtd">
+<extension version="2.5" type="module" client="site" method="upgrade">
+	<name>Comunidad - Comentarios Fotos</name>
+	<author>JomSocial Team</author>
+	<creationDate>March 2011</creationDate>
+	<copyright>Copyright (C) 2008 - 2010 JomSocial. All rights reserved.</copyright>
+	<license>http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL</license>
+	<authorEmail>support@jomsocial.com</authorEmail>
+	<authorUrl>http://www.jomsocial.com</authorUrl>	
+	<version>3.0.5.3</version>
+	<description>Muestra comentarios de los muros de las fotos recientes</description> 
+	<languages>
+		<language tag="en-GB">en-GB.mod_photocomments.ini</language>
+		<language tag="es-ES">es-ES.mod_photocomments.ini</language>
+	</languages>
+	<files>
+		<filename module="mod_photocomments">mod_photocomments.php</filename>
+		<filename>mod_photocomments.xml</filename>
+		<filename>index.html</filename>
+		<filename>helper.php</filename>
+		<folder>tmpl</folder>
+	</files>
+	<config>
+		<fields name="params">
+			<fieldset name="basic">
+				<field name="moduleclass_sfx" type="text" default="" label="Clase de Sufijo del Modulo" description="PARAMMODULECLASSSUFFIX" />
+				<field name="count" type="text" default="5" label="Cantidad" description="Número de comentarios del muro a mostrar (Por defecto 5)" />
+				<field name="show_avatar" type="list" default="1" label="Mostrar avatares" description="Seleccione si desea mostrar avatares">
+					<option value="1">Si</option>
+					<option value="0">No</option>
+				</field>
+				<field name="character_limit" type="text" default="0" label="Limite de caracteres" description="Limite de caracteres. 0 para ilimitado." />
+			</fieldset>
+		</fields>
+	</config>
+</extension>

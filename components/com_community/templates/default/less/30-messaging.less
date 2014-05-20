@@ -1,0 +1,100 @@
+/**
+* @copyright (C) 2013 iJoomla, Inc. - All rights reserved.
+* @license GNU General Public License, version 2 (http://www.gnu.org/licenses/gpl-2.0.html)
+* @author iJoomla.com <webmaster@ijoomla.com>
+* @url https://www.jomsocial.com/license-agreement
+* The PHP code portions are distributed under the GPL license. If not otherwise stated, all images, manuals, cascading style sheets, and included JavaScript *are NOT GPL, and are released under the IJOOMLA Proprietary Use License v1.0
+* More info at https://www.jomsocial.com/license-agreement
+*/
+
+.cInbox-Selection
+{
+	li { border-top: 1px solid #eee; padding-top: 7px; margin-top: 7px; display: inline-block; width: 100%; height: 40px; }
+
+	.cGrid-Info
+	{
+		margin: 0 0 0 50px;
+	}
+}
+
+.cMailBar
+{
+	border-bottom: 1px solid #ddd;
+	padding: 0 0 15px;
+}
+.cMail-MasterCheck
+{
+	display: inline-block;
+	margin: @input-fat+2 10px;
+	padding: 0;
+}
+
+.js-mail-checkbox {
+	width:5px;
+}
+
+.js-mail-item {
+	background:@index-background;
+	&.unread {
+		background:#FFF8D9;
+	}
+	&:hover {
+		.js-mail-actions { 
+			display:block;
+		}
+	}
+}
+
+.js-mail-actions {
+	display:none;
+}
+
+.cMailList
+{
+	li 
+	{ 
+		border-bottom: 1px solid #eee;
+		display: inline-block;
+		width: 100%;
+
+		&.Unread
+		{
+			background: #ffd;
+		}
+	}
+}
+.cMail-Box
+{
+	padding: 13px 10px;
+}
+.cMail-Avatar {
+	margin-right:10px;
+}
+
+.cMail-Actors
+{
+	border-bottom: 1px dashed #ddd;
+	padding: 0 0 15px;
+}
+.cMail-Compose
+{
+	border-top: 1px dashed #ddd;
+	padding: 15px 0 0;
+}
+.cInbox-Stream
+{
+	padding: 15px 0;
+
+	+ .cInbox-Stream
+	{
+		border-top: 1px solid #eee;
+	}
+}
+.cMessage-Body
+{
+	margin: 0 0 0 60px;
+}
+.cMessage-Content
+{
+	margin: 5px 0 0 0;
+}

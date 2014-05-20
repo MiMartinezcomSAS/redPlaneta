@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension version="2.5" type="plugin" group="community" method="upgrade">
+	<name>Comunidad - Actualizaciones de Twitter</name>
+	<author>JomSocial Team</author>
+	<creationDate>March 2011</creationDate>
+	<copyright>Copyright 2008 - 2010 by Slashes &amp; Dots Sdn Bhd. All rights reserved</copyright>
+	<license>http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL</license>
+	<authorEmail>support@jomsocial.com</authorEmail>
+	<authorUrl>http://www.jomsocial.com</authorUrl>
+	<version>3.0.5.3</version>
+	<isapplication>true</isapplication>
+	<isbrowseable>true</isbrowseable>
+	<description>PLG_TWITTER_XML_DESCRIPTION</description>
+	<languages>
+		<language tag="en-GB">en-GB.plg_community_twitter.ini</language>
+		<language tag="en-GB">en-GB.plg_community_twitter.sys.ini</language>
+		<language tag="es-ES">es-ES.plg_community_twitter.ini</language>
+		<language tag="es-ES">es-ES.plg_community_twitter.sys.ini</language>
+	</languages>
+	<files>
+		<file plugin="twitter">twitter.php</file>
+		<folder>twitter</folder>
+	</files>
+
+	<menuitem>
+		<menu label="Groups" position="toolbar">
+			<link label="Groups">task=groups</link>
+		</menu>
+	</menuitem>
+
+	<positions>
+		<position>content</position>
+		<position>sidebar_top</position>
+	</positions>
+	<params>
+		<param name="cache" type="list" default="0" label="Cache" description="Selecciones si desea usar la cache">
+			<option value="0">No</option>
+			<option value="1">Usar Global</option>
+		</param>
+		<param name="position" type="list" default="content" label="Posición" description="Posición por defecto si seleccionas esta app como Amplicación Core">
+			<option value="content">Contenido principal</option>
+			<option value="sidebar-top">Barra lateral superior</option>
+			<option value="sidebar-bottom">Barra lateral inferior</option>
+		</param>
+		<param name="coreapp" type="list" default="0" label="Aplicación Core" description="Evita que esta aplicación salga en la lista de aplicaciones de usuario pero permite que la aplicación salga en en perfil de usuario automaticamente si esta seleccionada.">
+			<option value="0">No</option>
+			<option value="1">Si</option>
+		</param>
+		<param name="consumerKey" type="text" default="" size="35" label="Clave del consumidor" description="" />
+		<param name="consumerSecret" type="text" default="" size="35" label="Secreto del consumidor" description="" />
+	</params>
+	<config>
+		<fields name="params">
+			<fieldset name="basic">
+				<field name="cache" type="list" default="0" label="Cache" description="Selecciones si desea usar la cache">
+					<option value="0">No</option>
+					<option value="1">Usar Global</option>
+				</field>
+				<field name="position" type="list" default="content" label="Posición" description="Posición por defecto si seleccionas esta app como Amplicación Core">
+					<option value="content">Contenido principal</option>
+					<option value="sidebar-top">Barra lateral superior</option>
+					<option value="sidebar-bottom">Barra lateral inferior</option>
+				</field>
+				<field name="coreapp" type="list" default="0" label="Aplicación Core" description="Evita que esta aplicación salga en la lista de aplicaciones de usuario pero permite que la aplicación salga en en perfil de usuario automaticamente si esta seleccionada.">
+					<option value="0">No</option>
+					<option value="1">Si</option>
+				</field>
+				<field name="consumerKey" type="text" default="" size="35" label="Clave del consumidor" description="" />
+				<field name="consumerSecret" type="text" default="" size="35" label="Secreto del consumidor" description="" />
+			</fieldset>
+		</fields>
+	</config>
+
+</extension>

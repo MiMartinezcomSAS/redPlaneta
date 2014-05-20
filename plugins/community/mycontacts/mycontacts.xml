@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension version="1.6" type="plugin" group="community" method="upgrade">
+	<name>Comunidad - Mis Contactos</name>
+	<author>JomSocial Team</author>
+	<creationDate>March 2011</creationDate>
+	<copyright>Copyright 2008 - 2010 by Slashes &amp; Dots Sdn Bhd. All rights reserved</copyright>
+	<license>http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL</license>
+	<authorEmail>support@jomsocial.com</authorEmail>
+	<authorUrl>http://www.jomsocial.com</authorUrl>
+	<version>3.0.5.3</version>
+	<isapplication>true</isapplication>
+	<description>PLG_MYCONTACTS_XML_DESCRIPTION</description>
+	<languages>
+	    <language tag="en-GB">en-GB.plg_community_mycontacts.ini</language>
+		<language tag="en-GB">en-GB.plg_community_mycontacts.sys.ini</language>
+		<language tag="es-GB">es-ES.plg_community_mycontacts.ini</language>
+		<language tag="es-ES">es-ES.plg_community_mycontacts.sys.ini</language>
+	</languages>
+	<files>
+		<file plugin="mycontacts">mycontacts.php</file>
+		<folder>mycontacts</folder>
+	</files>
+	<params>
+		<param name="cache" type="list" default="0" label="Cache" description="Seleccione si desea usar la cache">
+			<option value="0">No</option>
+			<option value="1">Usar Global</option>
+		</param>
+		<param name="coreapp" type="list" default="0" label="Aplicación Core" description="Evita que esta aplicación salga en la lista de aplicaciones pero permite que salga en en perfil de usuario automaticamente si esta seleccionada.">
+			<option value="0">No</option>
+			<option value="1">Si</option>
+		</param>
+		<param name="position" type="list" default="content" label="Posición" description="Posición por defecto si has seleccionado usar como aplicación core">
+			<option value="content">Contenido principal</option>
+			<option value="sidebar-top">Barra lateral superior</option>
+			<option value="sidebar-bottom">Barra lateral inferior</option>
+		</param>
+		<param name="hide_empty" type="list" default="0" label="Esconder campos vacios" description="Si esta activado no se mostraran los campos vacios.">
+			<option value="0">No</option>
+			<option value="1">Si</option>
+		</param>
+		<param name="home_address" type="list" default="1" label="Dirección de Casa" description="Mostrar dirección de casa.">
+			<option value="0">No</option>
+			<option value="1">Si</option>
+		</param>
+		<param name="city" type="list" default="1" label="Ciudad" description="Mostrar ciudad.">
+			<option value="0">No</option>
+			<option value="1">Si</option>
+		</param>
+		<param name="postal_code" type="list" default="1" label="Código Postal" description="Mostrar código postal.">
+			<option value="0">No</option>
+			<option value="1">Si</option>
+		</param>
+		<param name="country" type="list" default="1" label="País" description="Mostrar país.">
+			<option value="0">No</option>
+			<option value="1">Si</option>
+		</param>
+		<param name="phone_number" type="list" default="1" label="Número de Teléfono" description="Mostrar número de teléfono.">
+			<option value="0">No</option>
+			<option value="1">Si</option>
+		</param>
+		<param name="mobile_number" type="list" default="1" label="Número de Teléfono Movil" description="Mostrar número de teléfono movil.">
+			<option value="0">No</option>
+			<option value="1">Si</option>
+		</param>
+		<param name="fax_number" type="list" default="1" label="Número de Fax" description="Mostrar número de fax.">
+			<option value="0">No</option>
+			<option value="1">Si</option>
+		</param>
+		<param name="website" type="list" default="1" label="Página WEB" description="Mostrar página web.">
+			<option value="0">No</option>
+			<option value="1">Si</option>
+		</param>
+		<param name="my_company" type="list" default="1" label="Compañia" description="Mostrar compñia.">
+			<option value="0">No</option>
+			<option value="1">Si</option>
+		</param>
+		<param name="work_address" type="list" default="1" label="Dirección de Trabajo" description="Mostrar dirección de trabajo.">
+			<option value="0">No</option>
+			<option value="1">Si</option>
+		</param>
+		<param name="comp_website" type="list" default="1" label="Página WEB Compañia" description="Mostrar web compañia.">
+			<option value="0">No</option>
+			<option value="1">Si</option>
+		</param>
+		<param name="department" type="list" default="1" label="Departamento" description="Mostrar deapartamento.">
+			<option value="0">No</option>
+			<option value="1">Si</option>
+		</param>
+		<param name="job_title" type="list" default="1" label="Cargo" description="Mostrar cargo.">
+			<option value="0">No</option>
+			<option value="1">Si</option>
+		</param>
+		<param name="main_im_id" type="list" default="1" label="ID Principal IM" description="Mostrar ID principal IM ( IM = Progrmas de mensajería).">
+			<option value="0">No</option>
+			<option value="1">Si</option>
+		</param>
+		<param name="im_list" type="list" default="1" label="Lista IM" description="Mostrar lista IM.">
+			<option value="0">No</option>
+			<option value="1">Si</option>
+		</param>
+	</params>
+	<config>
+		<fields name="params">
+			<fieldset name="basic">
+				<field name="cache" type="list" default="0" label="Cache" description="Seleccione si desea usar la cache">
+					<option value="0">No</option>
+					<option value="1">Usar Global</option>
+				</field>
+				<field name="coreapp" type="list" default="0" label="Aplicación Core" description="Evita que esta aplicación salga en la lista de aplicaciones pero permite que salga en en perfil de usuario automaticamente si esta seleccionada.">
+					<option value="0">No</option>
+					<option value="1">Si</option>
+				</field>
+				<field name="position" type="list" default="content" label="Posición" description="Posición por defecto si has seleccionado usar como aplicación core">
+					<option value="content">Contenido principal</option>
+					<option value="sidebar-top">Barra lateral superior</option>
+					<option value="sidebar-bottom">Barra lateral inferior</option>
+				</field>
+				<field name="hide_empty" type="list" default="0" label="Esconder campos vacios" description="Si esta activado no se mostraran los campos vacios.">
+					<option value="0">No</option>
+					<option value="1">Si</option>
+				</field>
+				<field name="home_address" type="list" default="1" label="Dirección de Casa" description="Mostrar direción de casa.">
+					<option value="0">No</option>
+					<option value="1">Si</option>
+				</field>
+				<field name="city" type="list" default="1" label="Ciudad" description="Mostrar ciudad.">
+					<option value="0">No</option>
+					<option value="1">Si</option>
+				</field>
+				<field name="postal_code" type="list" default="1" label="Código Postal" description="Mostrar c´digo postal.">
+					<option value="0">No</option>
+					<option value="1">Si</option>
+				</field>
+				<field name="country" type="list" default="1" label="País" description="Mostrar país.">
+					<option value="0">No</option>
+					<option value="1">Si</option>
+				</field>
+				<field name="phone_number" type="list" default="1" label="Número de Teléfono" description="Mostrar número de teléfono.">
+					<option value="0">No</option>
+					<option value="1">Si</option>
+				</field>
+				<field name="mobile_number" type="list" default="1" label="Número de Teléfono Movil" description="Mostrar número de teléfono movil.">
+					<option value="0">No</option>
+					<option value="1">Si</option>
+				</field>
+				<field name="fax_number" type="list" default="1" label="Número de Fax" description="Mostrar número de fax.">
+					<option value="0">No</option>
+					<option value="1">Si</option>
+				</field>
+				<field name="website" type="list" default="1" label="Página WEB" description="Mostrar página web.">
+					<option value="0">No</option>
+					<option value="1">Si</option>
+				</field>
+				<field name="my_company" type="list" default="1" label="Compañia" description="Mostrar compañia.">
+					<option value="0">No</option>
+					<option value="1">Si</option>
+				</field>
+				<field name="work_address" type="list" default="1" label="Dirección de Trabajo" description="Mostrar dirección de trabajo.">
+					<option value="0">No</option>
+					<option value="1">Si</option>
+				</field>
+				<field name="comp_website" type="list" default="1" label="Página WEB Comapñia" description="Mostrar web compañia.">
+					<option value="0">No</option>
+					<option value="1">Si</option>
+				</field>
+				<field name="department" type="list" default="1" label="Departamento" description="Mostrar departamentot.">
+					<option value="0">No</option>
+					<option value="1">Si</option>
+				</field>
+				<field name="job_title" type="list" default="1" label="Cargo" description="Mostrar cargo.">
+					<option value="0">No</option>
+					<option value="1">Si</option>
+				</field>
+				<field name="main_im_id" type="list" default="1" label="ID Principal IM" description="ID principal IM ( IM = Progrmas de mensajería).">
+					<option value="0">No</option>
+					<option value="1">Si</option>
+				</field>
+				<field name="im_list" type="list" default="1" label="Lista IM" description="Mostrar lista IM.">
+					<option value="0">No</option>
+					<option value="1">Si</option>
+				</field>
+			</fieldset>
+		</fields>
+	</config>
+</extension>

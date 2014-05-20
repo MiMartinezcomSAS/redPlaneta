@@ -1,0 +1,76 @@
+/**
+* @copyright (C) 2013 iJoomla, Inc. - All rights reserved.
+* @license GNU General Public License, version 2 (http://www.gnu.org/licenses/gpl-2.0.html)
+* @author iJoomla.com <webmaster@ijoomla.com>
+* @url https://www.jomsocial.com/license-agreement
+* The PHP code portions are distributed under the GPL license. If not otherwise stated, all images, manuals, cascading style sheets, and included JavaScript *are NOT GPL, and are released under the IJOOMLA Proprietary Use License v1.0
+* More info at https://www.jomsocial.com/license-agreement
+*/
+
+.cGuest {
+	margin: 0 0 20px;
+  .box-shadow(inset 0px 1px 0px rgba(255,255,255,0.6));
+  h1 {
+  	.text-shadow(0px 0px 4px #222);
+    font-weight:bold !important;
+    padding:20px 20px 10px;
+    font-size:32px;
+    border:none;
+  }
+  .login-area {
+    background:@login-background;
+    padding:20px;
+    border:@login-border;
+    border-top:none;
+    .border-radius(@login-border-radius);
+    label { 
+      color:@login-reminder-link;
+    }
+    // .add-on {
+    //   padding:4px 0px;
+    //   [class^="js-icon-"]:before, [class*="js-icon-"]:before {
+    //     margin:0px !important;
+    //   }
+    // }
+  }
+
+  .hero-area {
+    .border-radius(6px 6px 0px 0px);
+    background:url('../images/guest-bg.jpg') no-repeat;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    .text-shadow();
+    .box-sizing(border-box);
+    color:#fefefe;
+    p { 
+      font-size:16px;
+    }
+    .content {
+      background:rgba(0,0,0,0.4);
+      padding:20px;
+      margin-top:120px;
+    }
+  }
+
+  .reminder-link {
+    padding:6px;
+    text-decoration:none;
+    color:@login-reminder-link;
+    background:none;
+    font-size:12px;
+    position:relative;
+    top:4px;
+    text-align:right;
+    &:hover {
+      color:lighten(@login-reminder-link,10%);
+      background:none;
+    }
+  }
+}
+
+.fb-wrapper {
+  display:inline-block;
+  padding:20px 0px 0px;
+}

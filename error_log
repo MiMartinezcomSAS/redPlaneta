@@ -1,0 +1,1 @@
+[15-Feb-2014 09:14:09 America/Chicago] PHP Warning:  Missing argument 2 for CGroupsAccess::groupsMemberView() in /home/planet/public_html/components/com_community/helpers/access/groups.php on line 454

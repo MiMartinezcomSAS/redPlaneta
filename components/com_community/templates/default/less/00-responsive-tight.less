@@ -1,0 +1,268 @@
+/**
+* @copyright (C) 2013 iJoomla, Inc. - All rights reserved.
+* @license GNU General Public License, version 2 (http://www.gnu.org/licenses/gpl-2.0.html)
+* @author iJoomla.com <webmaster@ijoomla.com>
+* @url https://www.jomsocial.com/license-agreement
+* The PHP code portions are distributed under the GPL license. If not otherwise stated, all images, manuals, cascading style sheets, and included JavaScript *are NOT GPL, and are released under the IJOOMLA Proprietary Use License v1.0
+* More info at https://www.jomsocial.com/license-agreement
+*/
+
+.no-float() {
+	float: none !important;
+	display: block !important;
+	width: auto !important;
+}
+
+.no-margin() {
+	margin: 0;
+}
+
+.hidden() {
+	display: none !important;
+}
+
+
+body #community-wrap {
+
+	.cResponsive-Tight {
+		.no-float();
+	}
+
+	.hidden-phone {
+		.hidden();
+	}
+
+	// Layout
+	// ======
+
+	.cSidebar {
+		margin-top:20px;
+	}
+
+	#cFeatured {
+		display:none !important;
+	}
+
+	// Omnibox
+	// =======
+	.cStream-Content.status-creator {margin-left:0px;}
+
+	// Avatar
+	// ======
+	.community-status .cStream-Avatar {display:none;}
+	.cPageAvatar {
+		margin-bottom: 60px;
+		> div {
+			text-align: center;
+			height: 100px;
+			width: 100px;
+				a {
+					font-size:10px;
+					padding:4px 8px;
+				}
+			}
+		}
+
+	// Stream
+	// ======
+
+	.cStreamList {
+		li[class$=".featured"],
+		li[class$=".like"],
+		li[class$=".join"],
+		li[class$=".attend"],
+		li[class$=".connect"],
+		li[class$=".popular"],
+		li[class$=".total"],
+		li[class$="feed-events"]
+		 {
+			.cStream-Content {
+				margin-left:0px;
+			}
+		}
+
+	}
+
+
+
+	// Page Modules
+	// ============
+
+	.cPage-Like {
+		left: 0;
+	}
+
+	.cPageInfo {
+		margin-left:130px;
+	}
+
+	.cPageOptions {
+		margin:20px 0px;
+	}
+
+	// Float
+	// =====
+
+	.filters.cFloat-R {
+		float:left;
+		display:block;
+		margin-bottom:6px;
+	}
+
+	.cPageAdmin.cFloatedList, .cSubmenu.cFloatedList {
+		li {
+			display:block;
+			float:none;
+			+ li {
+				border-left:none;
+				padding-left:0px;
+				margin-left:0px;
+			}
+		}
+	}
+
+	// Form
+	// =====
+
+	.cFormList.cFormHorizontal {
+
+		.form-label {
+			float:none;
+			display:block;
+			text-align:left;
+		}
+
+		.form-field {
+			margin-left:0px;
+		}
+
+		.pull-right {
+			float:left;
+		}
+
+	}
+
+	// Friend
+	// ======
+	.forFriendsList .cIndex-Actions div:nth-child(2) {
+		display:none;
+	}
+
+	// Search
+	// ======
+	#criteriaContainer input[type=text] {
+		margin-top:10px;
+		width:100%;
+	}
+
+	// Mixed
+	// =====
+	.cAlert.cEmpty {
+		padding:40px 10px;
+	}
+
+	// Appbox
+	// ======
+	.app-box {
+		position:relative;
+	}
+
+	// Index
+	// ======
+	.cIndex-Actions {
+		position:static;
+		> div {
+			display:block;
+			+ div {
+				margin-left:0px;
+			}
+		}
+	}
+
+	// Media
+	// =====
+	.cMedia-ThumbList li {
+		width:100%;
+	}
+
+	// Focus
+	// =====
+
+	.cProfile {
+		.cFocus {
+			.cFocus-avatar {
+				position:relative;
+				display:inline-block !important;
+				width:80px;
+				height:80px;
+				top:-40px;
+				margin-bottom:-40px;
+			}
+		}
+	}
+
+	.cFocus {
+		.cFocus-avatar {
+			.hidden();
+		}
+		.cFocus-content {
+			margin:0px 20px 20px 20px;
+			min-height:auto;
+			//text-align:center;
+		}
+		.cFocus-user {
+			h2, .cFocus-karma{
+				.no-float();
+				.no-margin();
+				margin:6px 0px;
+			}
+		}
+
+		.cFocus-info {
+				.no-margin();
+				margin-bottom:12px;
+				span {
+					.no-float();
+					.no-margin();
+					margin:6px 0px;
+				}
+		}
+
+		.cFocus-count {
+			position:static;
+			display:block;
+			border:0px !important;
+			li {
+				width:25%;
+				display:inline-block;
+				float:left;
+				margin:0px;
+				padding:0px;
+				text-align:center;
+				min-height:50px;
+				min-width:0px;
+				padding:20px 0px;
+				background:#fcfcfc;
+				.box-sizing(border-box);
+				border:0px;
+				font-size:9px;
+			}
+		}
+
+		.cFocus-definition {
+			margin-right:0px;
+			dt,dd {
+				.no-float();
+				.no-margin();
+			}
+			dd { margin-bottom:12px;}
+		}
+
+		.cFocus-actions {
+			.cFocus-actions-item {
+				border:0px !important;
+			}
+		}
+	}
+
+}

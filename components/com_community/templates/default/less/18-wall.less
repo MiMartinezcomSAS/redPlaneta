@@ -1,0 +1,79 @@
+/**
+* @copyright (C) 2013 iJoomla, Inc. - All rights reserved.
+* @license GNU General Public License, version 2 (http://www.gnu.org/licenses/gpl-2.0.html)
+* @author iJoomla.com <webmaster@ijoomla.com>
+* @url https://www.jomsocial.com/license-agreement
+* The PHP code portions are distributed under the GPL license. If not otherwise stated, all images, manuals, cascading style sheets, and included JavaScript *are NOT GPL, and are released under the IJOOMLA Proprietary Use License v1.0
+* More info at https://www.jomsocial.com/license-agreement
+*/
+
+@wallAvatar-size		: 48px;
+@wallContent-space		: @wallAvatar-size + 10;
+@wallComment-fat		: 15px;
+.wallComment-border()
+{
+	border-top: @wall-comment-border;
+	padding: @wallComment-fat 0 0;
+	margin: @wallComment-fat 0 0;
+}
+
+
+.cWall-Header
+{
+	//border-top: 3px solid #eee;
+	font-weight: bold;
+	padding: @wallComment-fat 0;
+	margin: @wallComment-fat 0 0;
+}
+.cWall-Content
+{
+	.wallComment-border();
+}
+.cComments
+{
+	display: inline-block;
+	width: 100%;
+}
+.cComment
+{
+	+ .cComment
+	{
+		border-top: 1px solid #e5e5e5;
+		margin-top: @wallComment-fat;
+		padding-top: @wallComment-fat;
+	}
+}
+.cComment-Avatar
+{
+	img.avatar
+	{
+		.square( @wallAvatar-size );
+	}
+}
+.cComment-Body
+{
+	margin: 0 0 0 @wallContent-space;
+}
+.cComment-Author
+{
+	font-weight: bold;
+}
+.cComment-Content
+{
+	margin: 5px 0;
+}
+.cComent-Actions
+{
+	margin: @wallComment-fat 0 0;
+	text-align: right;
+}
+.cComments-All
+{
+	.wallComment-border();
+
+	.cButton
+	{
+		display: block;
+		text-align: center;
+	}
+}

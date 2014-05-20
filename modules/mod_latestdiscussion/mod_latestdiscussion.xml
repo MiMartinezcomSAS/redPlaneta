@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE install SYSTEM "http://dev.joomla.org/xml/1.5/module-install.dtd">
+<extension version="2.5" type="module" client="site" method="upgrade">
+	<name>Comunidad - Ultimas Discusiones</name>
+	<author>JomSocial Team</author>
+	<creationDate>March 2011</creationDate>
+	<copyright>Copyright (C) 2008 - 2010 JomSocial. All rights reserved.</copyright>
+	<license>http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL</license>
+	<authorEmail>support@jomsocial.com</authorEmail>
+	<authorUrl>http://www.jomsocial.com</authorUrl>	
+	<version>3.0.5.3</version>
+	<description>Muestra las últimas discusiones</description>
+	<languages>
+		<language tag="en-GB">en-GB.mod_latestdiscussion.ini</language>
+		<language tag="es-ES">es-ES.mod_latestdiscussion.ini</language>
+	</languages>
+	<files>
+		<filename module="mod_latestdiscussion">mod_latestdiscussion.php</filename>
+		<filename>mod_latestdiscussion.xml</filename>
+		<filename>helper.php</filename>
+		<folder>tmpl</folder>
+	</files>
+	<params>
+		<param name="cache" type="list" default="1" label="Cache" description="Seleccione si deseas usar la cahe">
+			<option value="1">Usar global</option>
+			<option value="0">Sin cache</option>
+		</param>
+		<param name="count" type="text" default="5" label="Cantidad" description="Número de últimas discusiones a mostrar (Por defecto 5)" />
+		<param name="show_avatar" type="list" default="1" label="Mostrar avatar" description="Selecione si deseas mostrar avatar">
+			<option value="1">Si</option>
+			<option value="0">No</option>
+		</param>
+		<param name="repeat_avatar" type="list" default="1" label="Repetir Avatar" description="Seleccione si desea repetir el avatar de grupos similares.">
+			<option value="1">Si</option>
+			<option value="0">No</option>
+		</param>
+		<param name="show_private_discussion" type="list" default="1" label="Mostrar discusiones privadas" description="Selecione si desea mostrar discusiones de los grupos privados.">
+			<option value="1">Si</option>
+			<option value="0">No</option>
+		</param>
+		<param name="moduleclass_sfx" type="text" default="" label="Clase de Sufijo del Modulo" description="PARAMMODULECLASSSUFFIX" />
+	</params>
+	<config>
+		<fields name="params">
+			<fieldset name="basic">
+				<field name="cache" type="list" default="1" label="Cache" description="Selecione si desea usar la cahce">
+					<option value="1">Usar global</option>
+					<option value="0">Sin cache</option>
+				</field>
+				<field name="count" type="text" default="5" label="Cantidad" description="Número de últimas discusiones a mostrar (Por defecto 5)" />
+				<field name="show_avatar" type="list" default="1" label="Mostrar avatar" description="Selecione si deseas mostrar avatar">
+					<option value="1">Si</option>
+					<option value="0">No</option>
+				</field>
+				<field name="repeat_avatar" type="list" default="1" label="Repetir Avatar" description="Seleccione si desea repetir el avatar de grupos similares.">
+					<option value="1">Si</option>
+					<option value="0">No</option>
+				</field>
+				<field name="show_private_discussion" type="list" default="1" label="Mostrar discusiones privadas" description="Selecione si desea mostrar discusiones de los grupos privados.">
+					<option value="1">Si</option>
+					<option value="0">No</option>
+				</field>
+				<field name="moduleclass_sfx" type="text" default="" label="Clase de Sufijo del Modulo" description="PARAMMODULECLASSSUFFIX" />
+			</fieldset>
+		</fields>
+	</config>
+</extension>

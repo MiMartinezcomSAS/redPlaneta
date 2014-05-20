@@ -1,0 +1,86 @@
+/**
+* @copyright (C) 2013 iJoomla, Inc. - All rights reserved.
+* @license GNU General Public License, version 2 (http://www.gnu.org/licenses/gpl-2.0.html)
+* @author iJoomla.com <webmaster@ijoomla.com>
+* @url https://www.jomsocial.com/license-agreement
+* The PHP code portions are distributed under the GPL license. If not otherwise stated, all images, manuals, cascading style sheets, and included JavaScript *are NOT GPL, and are released under the IJOOMLA Proprietary Use License v1.0
+* More info at https://www.jomsocial.com/license-agreement
+*/
+
+@input-border		: #ccc;
+@input-background	: #fff;
+@input-fontcolor	: #666;
+@input-fat			: 4px;
+
+// Reset
+// ------
+
+// input[type="text"], input[type="submit"], input[type="button"], button {
+//   padding: 4px 12px;
+//   font-size: @baseFontSize;
+//   line-height: inherit;
+// 	float:inherit;
+// 	height:inherit;
+// }
+
+select {
+	background:#fefefe !important;
+	line-height:inherit;
+}
+
+.label-filetype
+{
+	border: 1px dashed #ddd;
+	.border-radius( 3px );
+	display: block;
+	padding: 9px;
+	position: relative;
+  overflow: hidden;
+  height: 100%;
+	.cButton { display: block; text-align: center; }
+
+	input[type="file"] {
+		overflow:hidden;
+		// display:none !important;
+		position: absolute;
+		width: 100% !important;
+		left: 0;
+		top: 0;
+	   cursor: pointer;
+	   /*Opacity settings for all browsers*/
+	   opacity: 0;
+	   -moz-opacity: 0;
+	   filter: alpha(opacity=0) !important;
+	   // IE Fallback
+	   -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+	   filter:progid:DXImageTransform.Microsoft.Alpha(opacity=0); 
+	}
+
+}
+
+
+
+
+/*----- REVISED CODE FOR BOOTSTRAP FORM -----*/
+
+.input-prepend, .input-append {
+	&.input-block-level {
+  	display: table;
+  	width: 100%;
+  	.add-on {
+  		display: table-cell;
+  		width:30px;
+  	}
+  	> input[type="submit"] {
+  		width:auto;
+  		display: table-cell;
+  	}
+		> input {
+		  box-sizing: border-box;
+     	height: auto;
+     	min-height:30px;
+		  display: table-cell;
+		  width: 100%;
+		}
+	}
+}

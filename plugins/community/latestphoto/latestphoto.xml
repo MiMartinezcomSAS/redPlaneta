@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension version="2.5" type="plugin" group="community" method="upgrade">
+    <name>Comunidad - Ultimas Fotos</name>
+    <author>JomSocial Team</author>
+    <creationDate>March 2011</creationDate>
+    <copyright>Copyright 2008 - 2010 by Slashes &amp; Dots Sdn Bhd. All rights reserved</copyright>
+    <license>http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL</license>
+    <authorEmail>support@jomsocial.com</authorEmail>
+    <authorUrl>http://www.jomsocial.com</authorUrl>
+    <version>3.0.5.3</version>
+    <isapplication>true</isapplication>
+    <description>PLG_LATESTPHOTO_XML_DESCRIPTION</description>
+    <languages>
+        <language tag="en-GB">en-GB.plg_community_latestphoto.ini</language>
+        <language tag="en-GB">en-GB.plg_community_latestphoto.sys.ini</language>
+		<language tag="es-ES">es-ES.plg_community_latestphoto.ini</language>
+        <language tag="es-ES">es-ES.plg_community_latestphoto.sys.ini</language>
+	</languages>	
+    <files>
+        <file plugin="latestphoto">latestphoto.php</file>
+        <folder>latestphoto</folder>
+    </files>
+
+    <menuitem>
+    </menuitem>
+
+    <params>
+        <param name="coreapp" type="list" default="0" label="Aplicación Core" description="Evita que esta aplicación salga en la lista de aplicaciones pero permite que salga en en perfil de usuario automaticamente si esta seleccionada.">
+            <option value="0">No</option>
+            <option value="1">Si</option>
+        </param>
+        <param name="position" type="list" default="content" label="Posición" description="Posición por defecto si has seleccionado usar como aplicación core">
+            <option value="content">Contenido principal</option>
+            <option value="sidebar-top">Barra lateral superior</option>
+            <option value="sidebar-bottom">Barra lateral inferior</option>
+        </param>
+        <param name="count" type="text" default="10" label="Cantidad" description="número de fotos a mostrar (Por defecto 10)" />
+        <param name="cache" type="list" default="1" label="Cache" description="Seleccione si desea usar la cache">
+            <option value="1">Usar Global</option>
+            <option value="0">No</option>
+        </param>
+    </params>
+    <config>
+        <fields name="params">
+            <fieldset name="basic">
+                <field name="coreapp" type="list" default="0" label="Aplicación Core" description="Evita que esta aplicación salga en la lista de aplicaciones pero permite que salga en en perfil de usuario automaticamente si esta seleccionada.">
+                    <option value="0">No</option>
+                    <option value="1">Si</option>
+                </field>
+                <field name="position" type="list" default="content" label="Posición" description="Posición por defecto si has seleccionado usar como aplicación core">
+                    <option value="content">Contenido principal</option>
+                    <option value="sidebar-top">Barra lateral superior</option>
+                    <option value="sidebar-bottom">Barra lateral inferior</option>
+                </field>                
+                <field name="cache" type="list" default="1" label="Cache" description="Seleccione si desea usar la cache">
+                    <option value="1">Usar Global</option>
+                    <option value="0">No</option>
+                </field>
+            </fieldset>
+        </fields>
+    </config>
+</extension>

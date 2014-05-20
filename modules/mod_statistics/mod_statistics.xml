@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE install SYSTEM "http://dev.joomla.org/xml/1.5/module-install.dtd">
+<extension version="2.5" type="module" client="site" method="upgrade">
+	<name>Comunidad - Estadisticas</name>
+	<author>JomSocial Team</author>
+	<creationDate>March 2011</creationDate>
+	<copyright>Copyright (C) 2008 - 2010 JomSocial. All rights reserved.</copyright>
+	<license>http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL</license>
+	<authorEmail>support@jomsocial.com</authorEmail>
+	<authorUrl>http://www.jomsocial.com</authorUrl>	
+	<version>3.0.5.3</version>
+	<description>Estadisticas JomSocial</description>
+	<languages>
+		<language tag="en-GB">en-GB.mod_statistics.ini</language>
+		<language tag="es-ES">es-ES.mod_statistics.ini</language>
+	</languages>
+	<files>
+		<filename module="mod_statistics">mod_statistics.php</filename>
+		<filename>mod_statistics.xml</filename>
+		<filename>helper.php</filename>
+		<filename>index.html</filename>
+		<filename>tmpl/index.html</filename>
+		<filename>tmpl/default.php</filename>
+	</files>
+	<params>
+		<param name="cache" type="hidden" default="0" label="Cache" description="Desactivar cache global." />
+		<param name="customCache" type="list" default="1" label="Cache" description="Seleccione si desea usar la cache.">
+			<option value="1">Si</option>
+			<option value="0">No</option>
+		</param>		
+		<param name="members" type="list" default="1" label="Mostrar total de miembros" description="Mostrar total de miembros.">
+			<option value="1">Si</option>
+			<option value="0">No</option>
+		</param>
+		<param name="groups" type="list" default="1" label="Mostrar total de grupos" description="Mostrar total de grupos.">
+			<option value="1">Si</option>
+			<option value="0">No</option>
+		</param>
+		<param name="discussions" type="list" default="1" label="Mostrar total de discusiones" description="Mostrar total de discusiones.">
+			<option value="1">Si</option>
+			<option value="0">No</option>
+		</param>
+		<param name="albums" type="list" default="1" label="Mostrar total de albunes" description="Mostrar total de albunes.">
+			<option value="1">Si</option>
+			<option value="0">No</option>
+		</param>
+		<param name="photos" type="list" default="1" label="Mostrar total de fotos" description="Mostrar total de fotos.">
+			<option value="1">Si</option>
+			<option value="0">No</option>
+		</param>
+		<param name="videos" type="list" default="1" label="Mostrar total de videos" description="Mostrar total de videos.">
+			<option value="1">Si</option>
+			<option value="0">No</option>
+		</param>
+		<param name="bulletins" type="list" default="1" label="Mostrar total de boletínes" description="Mostrar total de boletínes.">
+			<option value="1">Si</option>
+			<option value="0">No</option>
+		</param>
+		<param name="activities" type="list" default="1" label="Mostrar total de actividades" description="Mostrar total de actividades.">
+			<option value="1">Si</option>
+			<option value="0">No</option>
+		</param>
+		<param name="walls" type="list" default="1" label="Mostrar total de muros" description="Mostrar total de muros.">
+			<option value="1">Si</option>
+			<option value="0">No</option>
+		</param>
+		<param name="events" type="list" default="1" label="Mostrar total de eventos" description="Mostrar total de eventos.">
+			<option value="1">Si</option>
+			<option value="0">No</option>
+		</param>
+		<param name="genders" type="list" default="1" label="Mostrar total de genero" description="Mostrar total de genero.">
+			<option value="1">Si</option>
+			<option value="0">No</option>
+		</param>
+		<param name="genders_male" type="list" default="1" label="Mostrar hombres" description="Mostrar total de hombres.">
+			<option value="1">Si</option>
+			<option value="0">No</option>
+		</param>
+		<param name="genders_female" type="list" default="1" label="Mostrar Mujeres" description="Mostrar total de mujeres.">
+			<option value="1">Si</option>
+			<option value="0">No</option>
+		</param>
+		<param name="genders_unspecified" type="list" default="1" label="Mostrar sin Especificar" description="Mostrar total de sin especificar.">
+			<option value="1">Si</option>
+			<option value="0">No</option>
+		</param>
+		<param name="genders_fieldcode" type="text" default="FIELD_GENDER" label="Codigo de campo Genero" description="Si tienes un campo personalizado para el genero seleccione aqui el campo, sino dejar por defecto" />
+		<param name="genders_male_display" type="text" default="Hombre" label="Texto mostrado para masculino" description="Texto que se mostrara en el campo para el genero masculino" />
+		<param name="genders_female_display" type="text" default="Mujer" label="Texto mostrado para femenino" description="Texto que se mostrara en el campo para el genero femenino" />
+		<param name="moduleclass_sfx" type="text" default="" label="Clase de Sufijo del Modulo" description="PARAMMODULECLASSSUFFIX" />
+	</params>
+	<config>
+		<fields name="params">
+			<fieldset name="basic">
+				<field name="cache" type="hidden" default="0" label="Cache" description="Desactivar cache global." />
+				<field name="customCache" type="list" default="1" label="Cache" description="Seleccione si desea usar la cache.">
+					<option value="1">Si</option>
+					<option value="0">No</option>
+				</field>		
+				<field name="members" type="list" default="1" label="Mostrar total de miembros" description="Mostrar total de miembros.">
+					<option value="1">Si</option>
+					<option value="0">No</option>
+				</field>
+				<field name="groups" type="list" default="1" label="Mostrar total de grupos" description="Mostrar total de grupos.">
+					<option value="1">Si</option>
+					<option value="0">No</option>
+				</field>
+				<field name="discussions" type="list" default="1" label="Mostrar total de discusiones" description="Mostrar total de discusiones.">
+					<option value="1">Si</option>
+					<option value="0">No</option>
+				</field>
+				<field name="albums" type="list" default="1" label="Mostrar total de albunes" description="Mostrar total de albunes.">
+					<option value="1">Si</option>
+					<option value="0">No</option>
+				</field>
+				<field name="photos" type="list" default="1" label="Mostrar total de fotos" description="Mostrar total de fotos.">
+					<option value="1">Si</option>
+					<option value="0">No</option>
+				</field>
+				<field name="videos" type="list" default="1" label="Mostrar total de videos" description="Mostrar total de videos.">
+					<option value="1">Si</option>
+					<option value="0">No</option>
+				</field>
+				<field name="bulletins" type="list" default="1" label="Mostrar total de boletínes" description="Mostrar total de boletínes.">
+					<option value="1">Si</option>
+					<option value="0">No</option>
+				</field>
+				<field name="activities" type="list" default="1" label="Mostrar total de actividades" description="Mostrar total de actividades.">
+					<option value="1">Si</option>
+					<option value="0">No</option>
+				</field>
+				<field name="walls" type="list" default="1" label="Mostrar total de muros" description="Mostrar total de muros.">
+					<option value="1">Si</option>
+					<option value="0">No</option>
+				</field>
+				<field name="events" type="list" default="1" label="Mostrar total de eventos" description="Mostrar total de eventos.">
+					<option value="1">Si</option>
+					<option value="0">No</option>
+				</field>
+				<field name="genders" type="list" default="1" label="Mostrar total de genero" description="Mostrar total de genero.">
+					<option value="1">Si</option>
+					<option value="0">No</option>
+				</field>
+				<field name="genders_male" type="list" default="1" label="Mostrar total de Hombres" description="Mostrar total de hombres.">
+					<option value="1">Si</option>
+					<option value="0">No</option>
+				</field>
+				<field name="genders_female" type="list" default="1" label="Mostrar total de Mujeres" description="Mostrar total de mujeres.">
+					<option value="1">Si</option>
+					<option value="0">No</option>
+				</field>
+				<field name="genders_unspecified" type="list" default="1" label="Mostrar total de sin Especificar" description="Mostrar total de sin especificar.">
+					<option value="1">Si</option>
+					<option value="0">No</option>
+				</field>
+				<field name="genders_fieldcode" type="text" default="FIELD_GENDER" label="Codigo de campo Genero" description="Si tienes un campo personalizado para el genero seleccione aqui el campo, sino dejar por defecto" />
+				<field name="genders_male_display" type="text" default="Hombre" label="Texto mostrado para masculino" description="Texto que se mostrara en el campo para el genero masculino" />
+				<field name="genders_female_display" type="text" default="Mujer" label="Texto mostrado para femenino" description="Texto que se mostrara en el campo para el genero femenino" />
+				<field name="moduleclass_sfx" type="text" default="" label="Clase de Sufijo del Modulo" description="PARAMMODULECLASSSUFFIX" />
+			</fieldset>
+		</fields>
+	</config>
+</extension>

@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension version="2.5" type="plugin" group="community" method="upgrade">
+	<name>Comunidad - Mis Artículos</name>
+	<author>JomSocial Team</author>
+	<creationDate>March 2011</creationDate>
+	<copyright>Copyright 2008 - 2010 by Slashes &amp; Dots Sdn Bhd. All rights reserved</copyright>
+	<license>http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL</license>
+	<authorEmail>support@jomsocial.com</authorEmail>
+	<authorUrl>http://www.jomsocial.com</authorUrl>
+	<version>3.0.5.3</version>
+	<isapplication>true</isapplication>
+	<description>PLG_MYARTICLES_XML_DESCRIPTION</description>
+	<languages>
+	    <language tag="en-GB">en-GB.plg_community_myarticles.ini</language>
+		<language tag="en-GB">en-GB.plg_community_myarticles.sys.ini</language>
+		<language tag="es-ES">es-ES.plg_community_myarticles.ini</language>
+		<language tag="es-ES">es-ES.plg_community_myarticles.sys.ini</language>
+	</languages>
+	<files>
+		<file plugin="myarticles">myarticles.php</file>
+		<folder>myarticles</folder>
+	</files>
+	<params>
+		<param name="coreapp" type="list" default="0" label="Aplicación Core" description="Evita que esta aplicación salga en la lista de aplicaciones pero permite que salga en en perfil de usuario automaticamente si esta seleccionada.">
+			<option value="0">No</option>
+			<option value="1">Si</option>
+		</param>
+		<param name="position" type="list" default="content" label="Posición" description="Posición por defecto si has seleccionado usar como aplicación core">
+			<option value="content">Contenido principal</option>
+			<option value="sidebar-top">Barra lateral superior</option>
+			<option value="sidebar-bottom">Barra lateral inferior</option>
+		</param>
+		<param name="section" type="text" default="" label="Categoría" description="Muestra solo las categorías listadas en este campo (separadas por coma eg. 1,2,3). Dejar en blnaco para mostrar todos los artículos." />
+		<param name="limit" type="text" default="50" label="Limite" description="Limite de caracteres del contenido (Por defecto 50))." />
+		<param name="count" type="text" default="10" label="Cantidad" description="Numero de artículos a mostrar (Por Defecto 10)" />
+		<param name="introtext" type="list" default="0" label="Texto de introducción" description="Seleccione si desea mostrar el texto de introducción del artículo.">
+			<option value="1">Si</option>
+			<option value="0">No</option>
+		</param>
+		<param name="cache" type="list" default="1" label="Cache" description="Seleccione si desea usar la cache">
+			<option value="1">Usar Global</option>
+			<option value="0">No</option>
+		</param>
+		<param name="display_expired" type="list" default="1" label="Mostrar experidos" description="Mostrar artículos experidos basado en la fecha de publicación.">
+			<option value="1">Si</option>
+			<option value="0">No</option>
+		</param>
+	</params>
+	<config>
+		<fields name="params">
+			<fieldset name="basic">
+				<field name="coreapp" type="list" default="0" label="Core Application" description="Evita que esta aplicación salga en la lista de aplicaciones pero permite que salga en en perfil de usuario automaticamente si esta seleccionada.">
+					<option value="0">No</option>
+					<option value="1">Si</option>
+				</field>
+				<field name="position" type="list" default="content" label="Posición" description="Posición por defecto si has seleccionado usar como aplicación core">
+					<option value="content">Contenido principal</option>
+					<option value="sidebar-top">Barra lateral superior</option>
+					<option value="sidebar-bottom">Barra lateral inferior</option>
+				</field>
+				<field name="section" type="text" default="" label="Categoría" description="Muestra solo las categorías listadas en este campo (separadas por coma eg. 1,2,3). Dejar en blnaco para mostrar todos los artículos." />
+				<field name="limit" type="text" default="50" label="Limite" description="Limite de caracteres del contenido (Por defecto 50)." />
+				<field name="count" type="text" default="10" label="Cantidad" description="Numero de artículos a mostrar (Por Defecto 10)" />
+				<field name="introtext" type="list" default="0" label="Texto de introducción" description="Seleccione si desea mostrar el texto de introducción del artículo.">
+					<option value="1">Si</option>
+					<option value="0">No</option>
+				</field>
+				<field name="cache" type="list" default="1" label="Cache" description="Seleccione si desea usar la cache">
+					<option value="1">Usar Global</option>
+					<option value="0">No</option>
+				</field>
+				<field name="display_expired" type="list" default="1" label="Mostrar expirados" description="Mostrar artículos experidos basado en la fecha de publicación.">
+					<option value="1">Si</option>
+					<option value="0">No</option>
+				</field>
+			</fieldset>
+		</fields>
+	</config>
+</extension >

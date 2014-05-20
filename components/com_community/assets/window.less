@@ -1,0 +1,160 @@
+@import "../templates/default/less/00-mixins.less";
+
+/*= cWindows frame styling;
+-------------------------------------------------------------- */
+
+@windowsHeader		: 40px;
+
+#cWindow {
+	background: #fff;
+	font-size: 12px;
+	font-family: Arial,sans-serif;
+	line-height: 1.35;
+	color: #555;
+	text-align: left;
+
+	position: absolute;
+	z-index: 999999999999;
+	display: block;
+	width: 452px;
+	height: 170px;
+	top: 0;
+	margin-left: -25px;
+
+	&.new { display: none; }
+
+ .label-filetype {max-width:100%;}
+
+	// !important rules
+	// -----------------
+	.pull-left { float:left !important;}
+	.pull-right { float:right !important;}
+}
+
+#cWindowContentOuter 
+{
+	width: 500px;
+	height: 130px;
+}
+#cwin_close_btn 
+{
+	background: url(window/window-x.png) center no-repeat !important;
+	height: @windowsHeader;
+	width: @windowsHeader;
+	text-indent: -9999px;
+	margin: 0;
+	
+	position: absolute;
+	top: 0;
+	right: 0;
+	z-index: 1000;
+}
+#cwin_logo 
+{
+	color: #fff;
+	font-weight:bold;
+	font-size: 12px;
+	text-shadow: 0 1px 0 #444;
+	height: @windowsHeader;
+	line-height: @windowsHeader;
+	margin-left: 8px;
+
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 999;
+}
+
+/** 
+ * We use CSS Sprite for images
+ * less request, save bandwidth :)
+ */
+#cwin_tl,
+#cwin_tr,
+#cwin_bl,
+#cwin_br,
+#cwin_tm,
+#cwin_bm,
+#cwin_ml,
+#cwin_mr
+{
+	display: none;
+}
+
+#cWindow #cwin-wait 
+{
+	width: 43px;
+	height: 11px;
+	//background: transparent url(window/wait.gif) no-repeat;
+	display: none;
+}
+#cWindowContentOuter 
+{
+	border: 1px solid #444;
+	.box-shadow( 0 0 5px rgba(0, 0, 0, 0.8) );
+
+	float: left;
+	overflow: hidden;
+	position: relative;
+}
+#cWindowContentTop 
+{
+	height: @windowsHeader;
+	background: #555;
+	background: rgba( 85, 85, 85, 0.9 );
+	border-bottom: 1px solid #222;
+	overflow: hidden;
+}
+#cWindowContentWrap 
+{
+	overflow: auto;
+	background:	#fff;
+	position: relative;
+}
+#cWindowContentWrap.resizing 
+{
+	overflow: hidden;
+}
+#cWindowContent.resizing 
+{
+	overflow: hidden;
+	position: absolute;
+}
+#cWindowContent 
+{
+	padding: 10px 10px;
+	text-align: inherit;
+}
+// #cWindowContent .success {
+// 	color: green;	
+// }
+// #cWindowContent .failed {
+// 	color: red;
+// }
+#cWindowContentWrap.loading 
+{
+	//background-image: url(window/wait.gif);
+	background-position: center center;
+	background-repeat: no-repeat;
+	overflow:hidden;
+}
+#cWindowAction 
+{
+	background: #ccc url(window/wait.gif) no-repeat -43px -11px;
+	border-top: 1px solid #999;
+	font-size: 0;
+	//height: 49px;
+	// bottom: 0;
+	//text-align: right;
+	position: absolute;
+	width: 100%;
+	//left: 0;
+	display:block;
+	padding:10px;
+	.box-sizing(border-box);
+}
+
+#cWindowAction.loading 
+{
+	background-position: 10px 10px;
+}

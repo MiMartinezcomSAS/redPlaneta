@@ -1,0 +1,193 @@
+/**
+* @copyright (C) 2013 iJoomla, Inc. - All rights reserved.
+* @license GNU General Public License, version 2 (http://www.gnu.org/licenses/gpl-2.0.html)
+* @author iJoomla.com <webmaster@ijoomla.com>
+* @url https://www.jomsocial.com/license-agreement
+* The PHP code portions are distributed under the GPL license. If not otherwise stated, all images, manuals, cascading style sheets, and included JavaScript *are NOT GPL, and are released under the IJOOMLA Proprietary Use License v1.0
+* More info at https://www.jomsocial.com/license-agreement
+*/
+
+.js-focus {
+	border:@focus-border;
+	margin-bottom:24px;
+	position:relative;
+ 	// overflow:hidden;
+	.border-radius(@focus-border-radius);
+}
+
+.js-focus-cover{
+	position:relative;
+	width:100%;
+	overflow:hidden;
+  position: relative;
+  .border-radius(@focus-border-radius @focus-border-radius 0px 0px);
+  &:after {
+  	padding-top: 37.50%; //16:6 ratio . 6/16 = 0,3750
+  	display: block;
+  	content: '';
+  }
+	>	img {
+			position: absolute;
+    	top: 0; bottom: 0; right: 0; left: 0; // fill parent wrapper
+    	width:100%; // force the image to fill-in whole cover area
+		}
+	&:hover {
+			.js-focus-change-cover {
+			display:block;
+			z-index:20000;
+		}
+	}
+}
+
+.js-focus-change-cover {
+	position:absolute;
+	z-index:10000;
+	top:12px;
+	right:12px;
+	display:none;
+	cursor:pointer;
+}
+
+.js-focus-gradient {
+	background:url(@focus-gradient) bottom left repeat-x;
+	bottom: 0;
+	left: 0;
+	position: absolute;
+	right: 0;
+	top: 0;
+}
+
+.js-focus-content {
+	background:@focus-content-background;
+	position:relative;
+	height:auto;
+	padding-top:6px;
+	.box-sizing(border-box);
+}
+
+.js-focus-avatar {
+	position:relative;
+	top:-100px;
+	left:20px;
+	margin-right:20px;
+	margin-bottom:-80px;
+	max-width:160px;
+	max-height:240px;
+	overflow:hidden;
+	background:@focus-avatar-background;
+	display:block;
+
+	&:hover {
+		.js-focus-avatar-option {
+			display:block;
+			cursor:pointer;
+			position:absolute;
+			width:100%;
+			text-align:center;
+		}
+	}
+
+}
+
+.js-focus-avatar-option {
+	display:none;
+	position:relative;
+	bottom:18px;
+	left:0px;
+	a {
+		background:#333;
+		color:#fff;
+		font-weight:normal;
+		font-size:12px;
+		padding:4px 8px;
+		.border-radius(4px);
+		text-decoration:none;
+	}
+}
+
+.js-focus-header {
+	position:absolute;
+	bottom:0px;
+	left:0;
+	right:0;
+	padding-bottom:5px;
+	.span5 {
+		h3 {
+			color:@focus-title-color;
+			.text-shadow(0px 0px 2px rgba(0,0,0,1));
+			margin:0px;
+			line-height:@baseLineHeight + 10;
+		}
+	}
+	.span4 {
+		padding-right:20px;
+		.btn { margin-bottom:6px;}
+	}
+
+}
+
+.js-focus-menu {
+	a {
+		color:@focus-menu-color;
+	}
+}
+
+.js-focus-actions {
+	.navbar {
+		margin:0px;
+		.nav > li > span, .nav > li > a {
+			float: none;
+  		// Vertically center the text given @navbarHeight
+  		padding: ((@navbarHeight - @baseLineHeight) / 3) 12px ((@navbarHeight - @baseLineHeight) / 3);
+  		color: @navbarLinkColor;
+  		text-decoration: none;
+  		text-shadow: 0 1px 0 @navbarBackgroundHighlight;
+  		display:block;
+		}
+	}
+	.js-collapse-btn {
+		padding:4px 14px;
+	}
+
+	.navbar-inner {
+		padding:0px;
+		border:none;
+		border-top:1px solid @focus-action-border;
+		.border-radius(0px 0px @focus-border-radius @focus-border-radius);
+		background:@focus-action-background;
+		min-height:30px;
+		height:auto;
+
+	}
+	.js-focus-like {
+		.box-sizing(border-box);
+		background:darken(@focus-action-background,2%);
+		.box-shadow(inset 1px 0px 0px @focus-action-border, inset -1px 0px 0px @focus-action-border, inset 0px 0px 12px rgba(0,0,0,0.1));
+		color:darken(@navbarLinkColor,20%) !important;
+	}
+	.dropdown-menu {
+		&:before, &:after {
+			border:none !important;
+		}
+	}
+}
+
+
+#profile-status-message {
+	font-size:110%;
+}
+
+#focus-option-menu {
+	li {
+		display:block;
+		clear:both;
+		float:none;
+	}
+}
+
+.js-collapse-about {
+	.app-box {
+		border:none;
+		.box-shadow(none);
+	}
+}

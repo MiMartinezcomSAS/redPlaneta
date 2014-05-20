@@ -1,0 +1,150 @@
+/**
+* @copyright (C) 2013 iJoomla, Inc. - All rights reserved.
+* @license GNU General Public License, version 2 (http://www.gnu.org/licenses/gpl-2.0.html)
+* @author iJoomla.com <webmaster@ijoomla.com>
+* @url https://www.jomsocial.com/license-agreement
+* The PHP code portions are distributed under the GPL license. If not otherwise stated, all images, manuals, cascading style sheets, and included JavaScript *are NOT GPL, and are released under the IJOOMLA Proprietary Use License v1.0
+* More info at https://www.jomsocial.com/license-agreement
+*/
+
+@sidebar-width		:	230px;
+@content-margin		:	@sidebar-width + 15;
+@app-fat			:	10px;
+@app-border		: 	#dadada;
+@app-shade		: 	#cccccc;
+
+/**
+* COMMUNITY :.cLayout
+* .cMain :Fluid width for main section
+* .cSidebar :Fixed width for sidebar
+* this class is reusable across the JomSocial.com application
+*/
+.cLayout {
+	display: inline-block;
+	width: 100%;
+	position: relative;
+}
+.cSidebar + .cMain {
+	margin: 0 @content-margin 0 0;
+}
+.cSidebar {
+	//max-width:@sidebar-width;
+}
+.cGridFluid
+{
+	display: inline-block;
+	width: 100%;
+}
+.cPagination {
+
+	text-align: center;
+	* {
+		display:inline-block;
+		float: none;
+	}
+
+	ul {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+	}
+
+	li {
+		padding:2px;
+	}
+
+}
+
+/**- LOADING GIF -**/
+#cwin-wait,
+.loading
+{
+	display: none;
+	width: 16px;
+	height: 11px;
+	background: url(../images/mini-loader.gif);
+}
+
+// Grid Utilities
+@top-gap:@baseLineHeight / 2;
+@margin-gap:@baseLineHeight / 2;
+
+.top-gap {
+	margin-top:@top-gap !important;
+}
+.bottom-gap {
+	margin-bottom:@margin-gap !important;
+}
+
+// Tile layout ( Dynamic row and column layout )
+// =============================================
+
+.js-col-layout {
+  width:100%;
+  *zoom:1;
+  [class*="js-col"] {
+    display:block;
+    float:left;
+    width:100%;
+    min-height:28px;
+    margin-left:2.762430939%;
+    *margin-left:2.709239449638298%;
+    margin-bottom:2.762430939%;
+    *margin-bottom:2.709239449638298%;
+    -webkit-box-sizing:border-box;
+    -moz-box-sizing:border-box;
+    -ms-box-sizing:border-box;
+    box-sizing:border-box;
+    :first-child {
+      margin-left:0;
+    }
+		img { width:100%;}
+  }
+  .js-col2 { // two column each row
+    width:48.618784527%;
+    *width:48.5655930376383%;
+    &:nth-child(2n+1) { margin-left:0px; }
+  }
+  .js-col3 { // three column each row
+    width:31.491712705%;
+    *width:31.4385212156383%;
+    &:nth-child(3n+1) { margin-left:0px; }
+  }
+  .js-col4 { // four column each row
+    width:22.928176794%;
+    *width:22.874985304638297%;
+    &:nth-child(4n+1) { margin-left:0px; }
+  }
+}
+.js-col-layout:before {
+  display:table;
+  content:"";
+}
+.js-col-layout:after {
+  display:table;
+  content:"";
+  clear:both;
+}
+
+// Spacing Class
+// ======================
+.no-padding {
+  padding:0px !important;
+}
+
+.no-margin {
+  margin:0px !important;
+}
+
+.no-gap {
+  padding:0px !important;
+  margin:0px !important;
+}
+
+.space-12 {
+  margin:12px 0px;
+}
+
+.space-24 {
+  margin:24px 0px;
+}

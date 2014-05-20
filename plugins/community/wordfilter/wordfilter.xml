@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension version="2.5" type="plugin" group="community" method="upgrade">
+	<name>Comunidad - Filtor de Palabras</name>
+	<author>JomSocial Team</author>
+	<creationDate>March 2011</creationDate>
+	<copyright>Copyright 2008 - 2010 by Slashes &amp; Dots Sdn Bhd. All rights reserved</copyright>
+	<license>http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL</license>
+	<authorEmail>support@jomsocial.com</authorEmail>
+	<authorUrl>http://www.jomsocial.com</authorUrl>
+	<version>3.0.5.3</version>
+	<isapplication>false</isapplication>
+	<isbrowsable>false</isbrowsable>
+	<description>PLG_WORDFILTER_XML_DESCRIPTION</description>
+	<languages>
+		<language tag="en-GB">en-GB.plg_community_wordfilter.ini</language>
+		<language tag="en-GB">en-GB.plg_community_wordfilter.sys.ini</language>
+		<language tag="es-ES">es-ES.plg_community_wordfilter.ini</language>
+		<language tag="es-ES">es-ES.plg_community_wordfilter.sys.ini</language>		
+	</languages>
+	<files>
+		<file plugin="wordfilter">wordfilter.php</file>
+	</files>
+
+	<menuitem>
+		<menu label="Inbox" position="toolbar">
+			<link label="Inbox">task=inbox</link>
+			<link label="Compose">task=compose</link>
+		</menu>
+	</menuitem>
+
+	<params>
+		<param name="replacement" type="text" default="*" label="Carácter de reemplazo" description="Las palabras censuradas seran remplazadas por este carácter." />
+		<param name="badwords" type="textarea" default="fuck,shit" label="Palabras en Lista Negra" rows="5" cols="30" description="Introducir las palabras censuradas, separadas por comas." />
+	</params>
+	<config>
+		<fields name="params">
+			<fieldset name="basic">
+				<field name="replacement" type="text" default="*" label="Carácter de reemplazo" description="Las palabras censuradas seran remplazadas por este carácter." />
+				<field name="badwords" type="textarea" default="fuck,shit" label="Palabras en Lista Negra" rows="5" cols="30" description="Introducir las palabras censuradas, separadas por comas." />
+			</fieldset>
+		</fields>
+	</config>
+</extension>

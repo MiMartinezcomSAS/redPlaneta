@@ -1,0 +1,198 @@
+/**
+* @copyright (C) 2013 iJoomla, Inc. - All rights reserved.
+* @license GNU General Public License, version 2 (http://www.gnu.org/licenses/gpl-2.0.html)
+* @author iJoomla.com <webmaster@ijoomla.com>
+* @url https://www.jomsocial.com/license-agreement
+* The PHP code portions are distributed under the GPL license. If not otherwise stated, all images, manuals, cascading style sheets, and included JavaScript *are NOT GPL, and are released under the IJOOMLA Proprietary Use License v1.0
+* More info at https://www.jomsocial.com/license-agreement
+*/
+
+@input-fat : 4px;
+@privacyLine	: 16px;
+@privacyCell	: 120px;
+@privacyCellFat	: @privacyCell + @input-fat*2 + 25px;
+
+.js_PriCell {
+	width: @privacyCellFat;
+	display:inline-block;
+	
+	cursor: pointer;
+}
+.js_PriContainer {
+	position: relative;
+	z-index: 1;
+	height: @privacyLine;
+	padding: @input-fat @input-fat @input-fat 22px;
+}
+.js_PriContainerLarge .js_dropDownChild {
+	display: block;
+	min-width: 100px;
+	text-align: left !important;
+}
+.js_PriDefault {
+	border: 1px solid #ddd;
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+	border-radius: 3px;
+}
+.js_PriDefault .js_PriOption {
+	background-image: url('../images/sprites-privacy.png') !important;
+	background-repeat: no-repeat !important;
+	padding-left: 22px;
+}
+.js_dropDownMaster,
+.js_dropDownMaster dd,
+.js_dropDownMaster dt,
+.js_dropDownParent {
+	margin: 0;
+	padding: 0;
+}
+.js_dropDownMaster {
+	border: 1px solid transparent;
+	.border-radius( 3px );
+	background: #fff;
+	display: inline-block;
+	position: absolute;
+	left: 0;
+	top: 0;
+}
+.js_dropDownParent {
+	list-style-type: none;
+}
+.js_dropDownParent li {
+	background-image: none;
+	background-color: transparent;
+	padding: 0;
+	margin: 0;
+	text-align: left !important;
+}
+.js_dropDownMaster dt,
+.js_dropDownParent li > a {
+	display: block;
+	background-image: url('../images/sprites-privacy.png') !important;
+	background-repeat: no-repeat !important;
+	padding: @input-fat @input-fat*2 @input-fat 25px;
+	line-height: @privacyLine;
+	height: @privacyLine;
+	text-decoration: none;
+	white-space: nowrap;
+}
+.js_dropDownParent li a {
+	background-color: #f5f5f5;
+	color: #222;
+
+	&:hover {
+		background-color: #e5e5e5 !important;
+	}
+}
+.js_dropDownMaster dt {
+	border: 1px solid transparent;
+	text-indent: -9999em;
+	min-width: 10px;
+}
+.js_PriContainerLarge .js_dropDownMaster dt 
+{
+	text-indent: 0;
+	min-width: @privacyCell;
+}
+.js_PriContainerLarge .js_dropDownMaster dd
+{
+	min-width: @privacyCellFat;
+}
+.js_dropDownMaster dt span {
+	display: block;
+	background: transparent url('../images/pri-arrow.png') no-repeat 50% 50%;
+	width: 10px;
+	height: 100%;
+	float: right;
+}
+.js_dropDownMaster dt strong {
+	display: block;
+	float: left;
+}
+.js_Current dt span,
+#cWindowContentWrap .js_Current dt span {
+	background: transparent url('../images/pri-arrow-up.png') no-repeat 50% 50%;
+}
+.js_dropDownMaster dd {
+	display: none;
+	position: absolute;
+	left: 0;
+}
+
+@iconOffset		: 7px;
+
+.js_dropDown-0,
+.js_dropSelect-0,
+.js_Pri-0 
+{
+	background-position: @iconOffset 50% !important;
+	
+	&:hover
+	{
+		background-position: @iconOffset 50% !important;
+	}
+}
+.js_dropDown-20,
+.js_dropSelect-20,
+.js_Pri-20 
+{
+	background-position: (-300px+@iconOffset) 50% !important;
+	
+	&:hover
+	{
+		background-position: (-300px+@iconOffset) 50% !important;
+	}
+}
+.js_dropDown-30,
+.js_dropSelect-30,
+.js_Pri-30 
+{
+	background-position: (-600px+@iconOffset) 50% !important;
+	
+	&:hover
+	{
+		background-position: (-600px+@iconOffset) 50% !important;
+	}
+}
+.js_dropDown-40,
+.js_dropSelect-40,
+.js_Pri-40 
+{
+	background-position: (-900px+@iconOffset) 50% !important;
+	
+	&:hover
+	{
+		background-position: (-900px+@iconOffset) 50% !important;
+	}
+}
+.js_PrivacyOpen
+{
+	z-index: 999999;
+
+	.js_dropDownMaster
+	{
+		dt,
+		dd
+		{
+			border: 1px solid #ccc;
+			overflow: hidden;
+		}
+		dt
+		{
+			.border-radius( 2px 2px 0 0 );
+		}
+		dd
+		{
+			.border-radius( 0 0 2px 2px );
+			left: auto;
+			right: 0;
+			margin-top: -1px;
+		}
+	}
+}
+.form-privacy .js_dropDownMaster
+{
+	left: auto;
+	right: 0;
+}
