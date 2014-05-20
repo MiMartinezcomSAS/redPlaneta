@@ -1,4 +1,4 @@
 deploy.php
 *.DS_Store
 .idea
-configuration.php
+/configuration.php
