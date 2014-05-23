@@ -1786,8 +1786,8 @@ class CommunityProfileController extends CommunityBaseController {
         $my = CFactory::getUser();
 
         if ($my->id == 0) {
-	        /*$mainframe = JFactory::getApplication();
-	        $mainframe->redirect(CRoute::_('index.php?option=com_community&view=register&task=register', false));*/
+	        $mainframe = JFactory::getApplication();
+	        $mainframe->redirect(CRoute::_('index.php?option=com_community&view=register&task=register', false));
             return $this->blockUnregister();
         }
 
