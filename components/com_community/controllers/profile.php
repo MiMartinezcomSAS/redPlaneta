@@ -1323,6 +1323,7 @@ class CommunityProfileController extends CommunityBaseController {
 	    if($my->id == 0){
 		    $mainframe = JFactory::getApplication();
 		    $mainframe->redirect(CRoute::_('index.php?option=com_community&view=register&task=register', false));
+
 	    }
 
 	    // Test if userid is 0, check if the user is viewing its own profile.
