@@ -2,3 +2,4 @@ deploy.php
 *.DS_Store
 .idea
 /configuration.php
+.htaccess
