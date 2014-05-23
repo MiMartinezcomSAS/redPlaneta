@@ -29,7 +29,7 @@ $query2
 	->select(array('*'))
 	->from($db->quoteName('yq6g5_users', 'u'))
 	->join('INNER', $db->quoteName('yq6g5_community_users', 'c') . 'ON (' . $db->quoteName('u.id') . ' = ' . $db->quoteName('c.userid') . ')')
-	->where($db->quoteName('country') . ' = '. $group->id);
+	->where($db->quoteName('u.country') . ' = '. $group->id);
 	//->order('ordering ASC');
 $db2->setQuery($query2);
 $residentCollection = $db2->loadObjectList();
