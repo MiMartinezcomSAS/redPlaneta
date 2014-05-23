@@ -195,7 +195,7 @@ class CommunityRegisterController extends CommunityBaseController
 		}
 		else
 		{
-			$this->sendEmail('registration_uncomplete', $tmpUser, $password);
+			//$this->sendEmail('registration_uncomplete', $tmpUser, $password);
 
 			//redirect to profile update page.
 			// @rule: When there are no defined profile types, we will use the default.
@@ -328,7 +328,7 @@ class CommunityRegisterController extends CommunityBaseController
 			$model->removeTempUser($token);
 			$model->removeAuthKey($token);
 
-			$this->sendEmail('registration_complete', $user , null , $multiprofile->approvals | $jAdminApproval);
+			//$this->sendEmail('registration_complete', $user , null , $multiprofile->approvals | $jAdminApproval);
 
 			// If no fields created yet, the system should be intelligent enough to automatically sense it and redirect users to the register avatar page.
 			$mainframe->redirect(CRoute::_('index.php?option=com_community&view=register&task=registerAvatar&profileType='.$profileType, false));

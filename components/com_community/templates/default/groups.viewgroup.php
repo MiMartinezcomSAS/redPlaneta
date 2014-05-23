@@ -13,6 +13,27 @@ CAssets::attach('assets/easytabs/jquery.easytabs.min.js', 'js');
 CAssets::attach('assets/ajaxfileupload.pack.js', 'js');
 CAssets::attach('assets/imgareaselect/scripts/jquery.imgareaselect.min.js', 'js');
 CAssets::attach('assets/imgareaselect/css/imgareaselect-avatar.css', 'css');
+
+$db = JFactory::getDbo();
+$query = $db->getQuery(true);
+$query
+	->select(array('count(*)'))
+	->from($db->quoteName('yq6g5_users'))
+	->where($db->quoteName('country') . ' = '. $group->id);
+$db->setQuery($query);
+$count = $db->loadResult();
+
+$db2 = JFactory::getDbo();
+$query2 = $db2->getQuery(true);
+$query2
+	->select(array('*'))
+	->from($db->quoteName('yq6g5_users', 'u'))
+	->join('INNER', $db->quoteName('yq6g5_community_users', 'c') . 'ON (' . $db->quoteName('u.id') . ' = ' . $db->quoteName('c.userid') . ')')
+	->where($db->quoteName('country') . ' = '. $group->id);
+	//->order('ordering ASC');
+$db2->setQuery($query2);
+$residents = $db2->loadObjectList();
+//print_r($residents);exit();
 ?>
 
 <style type="text/css">
@@ -90,6 +111,8 @@ CAssets::attach('assets/imgareaselect/css/imgareaselect-avatar.css', 'css');
 									<li><a href="<?php echo CRoute::_('index.php?option=com_community&view=events&task=dispaly&groupid='.$group->id)?>"><?php echo ( $totalEvents == 1) ?  JText::sprintf('COM_COMMUNITY_EVENTS_COUNT',$totalEvents) : JText::sprintf('COM_COMMUNITY_EVENTS_COUNT_MANY',$totalEvents) ; ?></a></li>
 								<?php }?>
 							</ul>
+							<!-- Subtitulo de residentes: Alejo -->
+							<h4>&nbsp;<?php echo $count ?> Residentes</h4>
 						</div>
 					</div>
 				</div>
@@ -410,6 +433,32 @@ CAssets::attach('assets/imgareaselect/css/imgareaselect-avatar.css', 'css');
 			</div>
 			<?php } ?>
 			<!-- Group's Members @ Sidebar -->
+
+			<!-- Group's Residentes @ Sidebar: Alejo -->
+			<?php if($residents){ ?>
+				<div class="cModule cGroups-Residents app-box">
+					<h3 class="app-box-header"><?php echo JText::sprintf('COM_COMMUNITY_GROUPS_RESIDENTS'); ?></h3>
+
+					<div class="app-box-content">
+						<ul class="cThumbsList cResetList clearfix">
+							<?php foreach($residents as $resident) { ?>
+								<li>
+									<a href="<?php echo CUrlHelper::userLink($resident->id); ?>">
+										<img border="0" class="cAvatar jomNameTips" src="<?php echo $resident->thumb; ?>" title="<?php echo CTooltip::cAvatarTooltip($resident->name);?>" alt="<?php echo CTooltip::cAvatarTooltip($resident->name);?>" />
+									</a>
+								</li>
+								<?php if(--$limit < 1) break; } ?>
+						</ul>
+					</div>
+
+					<div class="app-box-footer">
+						<a href="<?php echo CRoute::_('index.php?option=com_community&view=groups&task=viewmembers&groupid=' . $group->id);?>">
+							<?php echo JText::_('COM_COMMUNITY_VIEW_ALL');?> (<?php echo $count; ?>)
+						</a>
+					</div>
+				</div>
+			<?php } ?>
+			<!-- Group's Residents @ Sidebar -->
 
 			<!-- Group Events @ Sidebar -->
 			<?php if( $showEvents ){ ?>
