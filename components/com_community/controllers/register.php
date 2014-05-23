@@ -20,7 +20,6 @@ class CommunityRegisterController extends CommunityBaseController
 	public function register()
 	{
 		//require_once JPATH_COMPONENT.'/libraries/profile.php';
-
 		$db       = JFactory::getDBO();
 		$document = JFactory::getDocument();
 		$my       = CFactory::getUser();
@@ -157,6 +156,7 @@ class CommunityRegisterController extends CommunityBaseController
 			return false;
 		}
 
+
 		// Send the first email to inform user of their username and password
 		$tmpUser      = $modelRegister->getTempUser($token);
 		$password     = (string) $post['jspassword2'];
@@ -170,6 +170,9 @@ class CommunityRegisterController extends CommunityBaseController
 
 		$model        = CFactory::getModel( 'Profile' );
 		$profileTypes = $model->getProfileTypes();
+
+		//$tmpUser->country = $_POST['jscountry'];
+		$mySess->set('country', $_POST['jscountry']);
 
 		// If there are no fields, we do not want to move to the edit profile area.
 		if (count($fields) <= 0 && (! $profileTypes || ! $config->get('profile_multiprofile') ))
@@ -310,6 +313,8 @@ class CommunityRegisterController extends CommunityBaseController
 
 			$model          = CFactory::getModel('register');
 			$tmpUser        = $model->getTempUser($token);
+
+			$tmpUser->country = $_POST['jscountry'];
 			//admin approval from joomla core
 			$usersConfig    = JComponentHelper::getParams( 'com_users' );
 			$jAdminApproval = $usersConfig->get( 'useractivation' )=='2'?1:0;
@@ -384,6 +389,9 @@ class CommunityRegisterController extends CommunityBaseController
 		$user->set('id', 0);
 		$user->set('usertype', $newUsertype );
 		$user->set('gid', ( $newUsertype ) );
+		//Asignacion de pais: Alejo
+		$mySess = JFactory::getSession();
+		$user->set('country', $mySess->get('country', ''));
 
 		//set group for J1.6
 		$user->set('groups', array($newUsertype => $newUsertype));
@@ -404,12 +412,15 @@ class CommunityRegisterController extends CommunityBaseController
 		$user->set('password', $userObj['password2']);
 		$user->set('activation', JApplication::getHash(JUserHelper::genRandomPassword()));
 		// If there was an error with registration, set the message and display the form
+		//print_r($user);exit();
 		if ( ! $user->save())
 		{
 			JError::raiseWarning('', JText::_( $user->getError()));
 			$this->register();
 			return false;
 		}
+
+
 
 		if ($user->id == 0)
 		{

@@ -8,7 +8,21 @@
 * More info at https://www.jomsocial.com/license-agreement
 */
 defined('_JEXEC') or die();
+
+$db = JFactory::getDbo();
+$query = $db->getQuery(true);
+
+$query
+	->select('*')
+	->from($db->quoteName('yq6g5_community_groups', 'g'))
+	->order('name ASC');
+$db->setQuery($query);
+$results = $db->loadObjectList();
+
 ?>
+
+
+
 <form action="<?php echo CRoute::getURI(); ?>" method="post" id="jomsForm" name="jomsForm" class="community-form-validate">
 <div class="ctitle">
 	<h2><?php echo JText::_( 'COM_COMMUNITY_REGISTER_TITLE_USER_INFO' ); ?></h2>
@@ -57,6 +71,22 @@ defined('_JEXEC') or die();
 		    <input type="text" id="jsusername" name="jsusername" value="<?php echo $data['html_field']['jsusername']; ?>"
 			       class="input text  required validate-username" style="width: 70%" />
 		    <input type="hidden" name="usernamepass" id="usernamepass" value="N"/>
+			<span id="errjsusernamemsg" style="display:none;">&nbsp;</span>
+		</div>
+	</li>
+
+	<!-- Campo personalizado -->
+	<li>
+		<label id="jscountrymsg" for="jscountry" class="form-label">Pa&iacute;s de residencia<span class="required-sign">&nbsp;*</span></label>
+
+		<div class="form-field">
+			<select name="jscountry" id="jscountry" class="required" style="width: 72%">
+				<?php
+					foreach($results as $result){
+						echo '<option value="' . $result->id . '">' . $result->name . '</option>';
+					}
+				?>
+			</select>
 			<span id="errjsusernamemsg" style="display:none;">&nbsp;</span>
 		</div>
 	</li>
