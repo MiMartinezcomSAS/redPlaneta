@@ -2339,6 +2339,40 @@ class CommunityGroupsController extends CommunityBaseController {
         $this->renderView(__FUNCTION__, $data);
     }
 
+	/**
+	 * Metodo para ver los residentes de un grupo.
+	 * Creado por: Alejandro Cortes
+	 */
+	public function viewresidents() {
+		$mainframe = JFactory::getApplication();
+		$jinput = $mainframe->input;
+
+		$config = CFactory::getConfig();
+		$my = CFactory::getUser();
+		$data = new stdClass();
+		$data->id = $jinput->get->get('groupid', '', 'INT');
+
+		// Get a db connection.
+		$db = JFactory::getDbo();
+		// Create a new query object.
+		$query = $db->getQuery(true);
+		$query
+			->select(array('*'))
+			->from($db->quoteName('yq6g5_users'))
+			->where($db->quoteName('country') . ' = '. $_GET['groupid'])
+			->order('name ASC');
+		$db->setQuery($query);
+		$data = $db->loadObjectList();
+
+		if (!$my->authorise('community.view', 'groups.member.' . $data->id)) {
+			$errorMsg = $my->authoriseErrorMsg();
+			echo $errorMsg;
+			return;
+		}
+
+		$this->renderView('groups.viewresidents.php', $data);
+	}
+
     /**
      * Show full view of the news for the group
      * */

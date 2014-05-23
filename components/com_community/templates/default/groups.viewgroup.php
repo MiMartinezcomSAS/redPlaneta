@@ -32,8 +32,8 @@ $query2
 	->where($db->quoteName('country') . ' = '. $group->id);
 	//->order('ordering ASC');
 $db2->setQuery($query2);
-$residents = $db2->loadObjectList();
-//print_r($residents);exit();
+$residentCollection = $db2->loadObjectList();
+
 ?>
 
 <style type="text/css">
@@ -435,16 +435,16 @@ $residents = $db2->loadObjectList();
 			<!-- Group's Members @ Sidebar -->
 
 			<!-- Group's Residentes @ Sidebar: Alejo -->
-			<?php if($residents){ ?>
-				<div class="cModule cGroups-Residents app-box">
+			<?php if($residentCollection){ ?>
+				<div class="cModule cGroups-residentCollection app-box">
 					<h3 class="app-box-header"><?php echo JText::sprintf('COM_COMMUNITY_GROUPS_RESIDENTS'); ?></h3>
 
 					<div class="app-box-content">
 						<ul class="cThumbsList cResetList clearfix">
-							<?php foreach($residents as $resident) { ?>
+							<?php foreach($residentCollection as $residentItem) { ?>
 								<li>
-									<a href="<?php echo CUrlHelper::userLink($resident->id); ?>">
-										<img border="0" class="cAvatar jomNameTips" src="<?php echo $resident->thumb; ?>" title="<?php echo CTooltip::cAvatarTooltip($resident->name);?>" alt="<?php echo CTooltip::cAvatarTooltip($resident->name);?>" />
+									<a href="<?php echo CUrlHelper::userLink($residentItem->id); ?>">
+										<img border="0" class="cAvatar jomNameTips" src="<?php echo $residentItem->thumb; ?>" title="<?php echo $residentItem->name;?>" alt="<?php echo $residentItem->name;?>" />
 									</a>
 								</li>
 								<?php if(--$limit < 1) break; } ?>
@@ -452,7 +452,7 @@ $residents = $db2->loadObjectList();
 					</div>
 
 					<div class="app-box-footer">
-						<a href="<?php echo CRoute::_('index.php?option=com_community&view=groups&task=viewmembers&groupid=' . $group->id);?>">
+						<a href="<?php echo CRoute::_('index.php?option=com_community&view=groups&task=viewresidents&groupid=' . $group->id);?>">
 							<?php echo JText::_('COM_COMMUNITY_VIEW_ALL');?> (<?php echo $count; ?>)
 						</a>
 					</div>
