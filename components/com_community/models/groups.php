@@ -484,6 +484,33 @@ implements CLimitsInterface, CNotificationsInterface
 	}
 
 	/**
+	 * Returns the count of the residents of a specific group
+	 *
+	 * @access	public
+	 * @param	string 	Group's id.
+	 * @return	int	Count of members
+	 */
+	public function getResidentsCount( $id )
+	{
+		$db	= $this->getDBO();
+
+		if( !isset($this->membersCount[$id] ) )
+		{
+			$query	= 'SELECT COUNT(*) FROM ' . $db->quoteName('#__users') . ' '
+				. 'WHERE '.$db->quoteName('country').'=' . $db->Quote( $id ) . ' ';
+
+			$db->setQuery( $query );
+			$this->membersCount[$id]	= $db->loadResult();
+
+			if($db->getErrorNum())
+			{
+				JError::raiseError( 500, $db->stderr());
+			}
+		}
+		return $this->membersCount[$id];
+	}
+
+	/**
 	 * Return the count of the user's friend of a specific group
 	 */
 	public function getFriendsCount( $userid, $groupid )
@@ -1137,6 +1164,58 @@ implements CLimitsInterface, CNotificationsInterface
 			jimport('joomla.html.pagination');
 
 			$this->_pagination	= new JPagination( $total , $limitstart , $limit);
+		}
+
+		return $result;
+	}
+
+	public function getResidents($groupid , $limit = 0)
+	{
+		CError::assert( $groupid , '', '!empty', __FILE__ , __LINE__ );
+
+		$db		= $this->getDBO();
+		$config	= CFactory::getConfig();
+		$limit		= ($limit === 0) ? $this->getState('limit') : $limit;
+		$limitstart = $this->getState('limitstart');
+
+		$query	= 'SELECT * FROM'
+			. $db->quoteName('#__users') . ' AS a '
+			. ' WHERE a.'.$db->quoteName('country') . ' = ' . $groupid;
+			$query	.= ' ORDER BY a.`' . $config->get( 'displayname') . '`';
+
+		if( !is_null($limit) )
+		{
+			$query	.= ' LIMIT ' . $limitstart . ',' . $limit;
+		}
+
+		$db->setQuery( $query );
+		$result	= $db->loadObjectList();
+
+		if($db->getErrorNum()) {
+			JError::raiseError( 500, $db->stderr());
+		}
+
+		/*$query	= 'SELECT COUNT(*) FROM '
+			. $db->quoteName('#__community_groups_members') . ' AS a '
+			. ' INNER JOIN ' . $db->quoteName('#__users') . ' AS b '
+			. ' WHERE b.'.$db->quoteName('id').'=a.'.$db->quoteName('memberid')
+			. ' AND a.'.$db->quoteName('groupid').'=' . $db->Quote( $groupid )
+			. ' AND b.'.$db->quoteName('block').'=' . $db->Quote( '0' );
+
+
+		$db->setQuery( $query );
+		$total		= $db->loadResult();
+		$this->total	= $total;*/
+
+		if($db->getErrorNum()) {
+			JError::raiseError( 500, $db->stderr());
+		}
+
+		if( empty($this->_pagination) )
+		{
+			jimport('joomla.html.pagination');
+
+			$this->_pagination	= new JPagination( $this->getResidentsCount($groupid) , $limitstart , $limit);
 		}
 
 		return $result;

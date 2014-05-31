@@ -1852,6 +1852,126 @@ class CommunityViewGroups extends CommunityView {
                 ->fetch('groups.viewmembers');
     }
 
+	/**
+	 * View method to display residents of the groups
+	 * Created By: Alejo
+	 *
+	 * @access	public
+	 * @param	string 	Group Id
+	 * @returns object  An object of the specific group
+	 */
+	public function viewresidents($data) {
+		$mainframe = JFactory::getApplication();
+		$jinput = $mainframe->input;
+
+		$groupsModel = CFactory::getModel('groups');
+
+		$my = CFactory::getUser();
+		$config = CFactory::getConfig();
+		$type = $jinput->get->get('approve', '', 'NONE'); //JRequest::getVar( 'approve' , '' , 'GET' );
+		$group = JTable::getInstance('Group', 'CTable');
+		$list = $jinput->get->get('list', '', 'NONE'); //JRequest::getVar( 'list' , '' , 'GET' );
+
+		if (!$group->load($data->id)) {
+			echo JText::_('COM_COMMUNITY_GROUPS_NOT_FOUND_ERROR');
+			return;
+		}
+
+		// @rule: Test if the group is unpublished, don't display it at all.
+		if (!$group->published) {
+			$this->_redirectUnpublishGroup();
+			return;
+		}
+
+		$document = JFactory::getDocument();
+		$document->setTitle(JText::sprintf('COM_COMMUNITY_GROUPS_MEMBERS_TITLE', $group->name));
+
+		$this->addPathway(JText::_('COM_COMMUNITY_GROUPS'), CRoute::_('index.php?option=com_community&view=groups'));
+		$this->addPathway($group->name, CRoute::_('index.php?option=com_community&view=groups&task=viewgroup&groupid=' . $group->id));
+		$this->addPathway(JText::_('COM_COMMUNITY_MEMBERS'));
+
+
+		$isSuperAdmin = COwnerHelper::isCommunityAdmin();
+		$isAdmin = $groupsModel->isAdmin($my->id, $group->id);
+		$isMember = $group->isMember($my->id);
+		$isMine = ($my->id == $group->ownerid);
+		$isBanned = $group->isBanned($my->id);
+
+		if ($group->approvals == '1' && !$isMine && !$isMember && !$isSuperAdmin) {
+			$this->noAccess(JText::_('COM_COMMUNITY_GROUPS_PRIVATE_NOTICE'));
+			return;
+		}
+
+		//Consulta personalizada residentes : Alejo
+		/*$db = JFactory::getDbo();
+		$query = $db->getQuery(true);
+
+		$query->select('*');
+		$query->from($db->quoteName('yq6g5_users'));
+		$query->where($db->quoteName('country') . ' = ' . $group->id);
+		$query->order($db->quoteName('name'));
+
+		$db->setQuery($query);
+		$members = $db->loadObjectList();
+
+		$groupsModel->members = $members;*/
+		switch ($list) {
+			case COMMUNITY_GROUP_ADMIN :
+				$members = $groupsModel->getAdmins($data->id);
+				break;
+			case COMMUNITY_GROUP_BANNED :
+				$members = $groupsModel->getBannedMembers($data->id);
+				break;
+			default :
+				$members = $groupsModel->getResidents($data->id, null);
+		}
+
+		$this->showSubmenu();
+
+		// Attach avatar of the member
+		// Pre-load multiple users at once
+		$userids = array();
+		foreach ($members as $uid) {
+			$userids[] = $uid->id;
+		}
+		CFactory::loadUsers($userids);
+
+		$membersList = array();
+		foreach ($members as $member) {
+			$user = CFactory::getUser($member->id);
+
+			$user->friendsCount = $user->getFriendCount();
+			$user->approved = $member->approved;
+			$user->isMe = ( $my->id == $member->id ) ? true : false;
+			$user->isAdmin = $groupsModel->isAdmin($user->id, $group->id);
+			$user->isOwner = ( $member->id == $group->ownerid ) ? true : false;
+
+			// Check user's permission
+			//$groupmember = JTable::getInstance('GroupMembers', 'CTable');
+			//$keys['groupId'] = $group->id;
+//			$keys['memberId'] = $member->id;
+//			$groupmember->load($keys);
+			//$user->isBanned = ( $groupmember->permissions == COMMUNITY_GROUP_BANNED ) ? true : false;
+
+			$membersList[] = $user;
+		}
+		$pagination = $groupsModel->getPagination();
+
+		$tmpl = new CTemplate();
+		echo $tmpl->set('members', $membersList)
+			->set('type', $type)
+			->set('isMine', $groupsModel->isCreator($my->id, $group->id))
+			->set('isAdmin', $isAdmin)
+			->set('isMember', $isMember)
+			->set('isSuperAdmin', $isSuperAdmin)
+			->set('pagination', $pagination)
+			->set('groupid', $group->id)
+			->set('my', $my)
+			->set('config', $config)
+			->set('group', $group)
+			->fetch('groups.viewresidents');
+	}
+
     /**
      * View method to display discussions from a group
      *

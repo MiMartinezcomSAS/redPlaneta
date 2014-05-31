@@ -14,7 +14,6 @@ CAssets::attach('assets/easytabs/jquery.easytabs.min.js', 'js');
 
 
 <div class="cLayout cGroups-ViewMembers">
-	<h3>Residentes</h3>
     <?php if ($type == '1' && !( $isMine || $isAdmin || $isSuperAdmin )) { ?>
         <div>
             <?php echo JText::_('COM_COMMUNITY_PERMISSION_DENIED_WARNING'); ?>
@@ -26,9 +25,9 @@ CAssets::attach('assets/easytabs/jquery.easytabs.min.js', 'js');
                 <?php foreach ($members as $member) { ?>
                     <?php
                     /* do not display banned users but not mine || admin || superadmin */
-                    /*if ($member->isBanned && !( $isMine || $isAdmin || $isSuperAdmin )) {
+                    if ($member->isBanned && !( $isMine || $isAdmin || $isSuperAdmin )) {
                         continue;
-                    }*/
+                    }
                     ?>
                     <li id="member_<?php echo $member->id; ?>">
                         <div class="cIndex-Box clearfix">
@@ -56,7 +55,34 @@ CAssets::attach('assets/easytabs/jquery.easytabs.min.js', 'js');
                                                 </li>
                                             <?php } ?>
                                             <!-- not self revert and require group admin or superadmin and this's admin -->
-
+                                            <?php if ((!$member->isMe) && ($isAdmin || $isSuperAdmin ) && ($member->isAdmin)) { ?>
+                                                <li class="setAdmin">
+                                                    <a href="javascript:void(0);" onclick="jax.call('community', 'groups,ajaxRemoveAdmin', '<?php echo $member->id; ?>', '<?php echo $groupid; ?>');">
+                                                        <?php echo JText::_('COM_COMMUNITY_GROUPS_REVERT_ADMIN'); ?>
+                                                    </a>
+                                                </li>
+                                            <?php } ?>
+                                            <?php
+                                            if ($member->id != $group->ownerid && !$group->isAdmin($member->id) && $my->id != $member->id && !COwnerHelper::isCommunityAdmin($member->id)) {
+                                                if (!$member->isBanned && ( $isAdmin || $isSuperAdmin )) {
+                                                    ?>
+                                                    <li>
+                                                        <a href="javascript:void(0);" onclick="jax.call('community', 'groups,ajaxBanMember', '<?php echo $member->id; ?>', '<?php echo $groupid; ?>');">
+                                                            <?php echo JText::_('COM_COMMUNITY_GROUPS_BAN_MEMBER'); ?>
+                                                        </a>
+                                                    </li>
+                                                    <?php
+                                                } else if ($member->isBanned == COMMUNITY_GROUP_BANNED && ( $isAdmin || $isSuperAdmin )) {
+                                                    ?>
+                                                    <li>
+                                                        <a href="javascript:void(0);" onclick="jax.call('community', 'groups,ajaxUnbanMember', '<?php echo $member->id; ?>', '<?php echo $groupid; ?>');">
+                                                            <?php echo JText::_('COM_COMMUNITY_GROUPS_MEMBER_UNBAN'); ?>
+                                                        </a>
+                                                    </li>
+                                                    <?php
+                                                }
+                                            }
+                                            ?>
                                             <?php
                                             if (($isMine || $isAdmin || $isSuperAdmin) && $my->id != $member->id) {
                                                 ?>

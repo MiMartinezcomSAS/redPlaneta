@@ -2353,16 +2353,16 @@ class CommunityGroupsController extends CommunityBaseController {
 		$data->id = $jinput->get->get('groupid', '', 'INT');
 
 		// Get a db connection.
-		$db = JFactory::getDbo();
+		//$db = JFactory::getDbo();
 		// Create a new query object.
-		$query = $db->getQuery(true);
+		/*$query = $db->getQuery(true);
 		$query
 			->select(array('*'))
 			->from($db->quoteName('yq6g5_users'))
 			->where($db->quoteName('country') . ' = '. $_GET['groupid'])
 			->order('name ASC');
 		$db->setQuery($query);
-		$data = $db->loadObjectList();
+		$data = $db->loadObjectList();*/
 
 		if (!$my->authorise('community.view', 'groups.member.' . $data->id)) {
 			$errorMsg = $my->authoriseErrorMsg();
@@ -2370,7 +2370,7 @@ class CommunityGroupsController extends CommunityBaseController {
 			return;
 		}
 
-		$this->renderView('groups.viewresidents.php', $data);
+		$this->renderView(__FUNCTION__, $data);
 	}
 
     /**
