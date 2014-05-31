@@ -734,8 +734,10 @@ class CommunityProfileController extends CommunityBaseController {
         $data->profile = $model->getEditableProfile($user->id, $user->getProfileType());
 
         if ($action == 'profile') { /* JomSocial profile update */
+	        $mySess = JFactory::getSession();
+	        $mySess->set('country', $_POST['jscountry']);
             if ($this->_saveProfile()) {
-                $msg = JText::_('COM_COMMUNITY_SETTINGS_SAVED');
+	            $msg = JText::_('COM_COMMUNITY_SETTINGS_SAVED');
                 $mainframe->redirect(CRoute::_('index.php?option=com_community&view=profile&task=edit', false), $msg);
             } else {
                 $postData = $_POST;
@@ -750,7 +752,7 @@ class CommunityProfileController extends CommunityBaseController {
                 }
             }
         } elseif ($action == 'detail') { /* Joomla! user detail update */
-            $this->save();
+	        $this->save();
         }
 
         /* template display */
@@ -987,6 +989,7 @@ class CommunityProfileController extends CommunityBaseController {
      * @param	none
      */
     private function _saveProfile() {
+
         $model = $this->getModel('profile');
         $usermodel = $this->getModel('user');
         $document = JFactory::getDocument();
@@ -998,6 +1001,10 @@ class CommunityProfileController extends CommunityBaseController {
         if ($my->id == 0) {
             return $this->blockUnregister();
         }
+
+	    //Agrego el campo a $my: Alejo
+	    $mySess = JFactory::getSession();
+	    $my->set('country', $mySess->get('country', ''));
 
         $appsLib = CAppPlugins::getInstance();
         $saveSuccess = $appsLib->triggerEvent('onFormSave', array('jsform-profile-edit'));
@@ -1016,7 +1023,8 @@ class CommunityProfileController extends CommunityBaseController {
                     // Grab raw, unfiltered data
                     $postData = $input->post->get('field' . $data['id'], '', 'RAW'); //
                     // Retrieve the privacy data for this particular field.
-                    $fieldValue->access = JRequest::getInt('privacy' . $data['id'], 0, 'POST');
+
+	                $fieldValue->access = JRequest::getInt('privacy' . $data['id'], 0, 'POST');
                     $fieldValue->value = CProfileLibrary::formatData($data['type'], $postData);
 
                     if (get_magic_quotes_gpc()) {
@@ -1788,7 +1796,7 @@ class CommunityProfileController extends CommunityBaseController {
         if ($my->id == 0) {
 	        $mainframe = JFactory::getApplication();
 	        $mainframe->redirect(CRoute::_('index.php?option=com_community&view=register&task=register', false));
-            return $this->blockUnregister();
+            //return $this->blockUnregister();
         }
 
         $view = $this->getView('profile');

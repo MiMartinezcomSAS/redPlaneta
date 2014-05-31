@@ -9,6 +9,26 @@
 */
 defined('_JEXEC') or die();
 $validPassword = JText::sprintf( JText::_( 'JLIB_DATABASE_ERROR_VALID_AZ09', true ), JText::_( 'Password', true ), 4 );
+
+$db = JFactory::getDbo();
+$query = $db->getQuery(true);
+
+$query
+	->select('*')
+	->from($db->quoteName('yq6g5_community_groups', 'g'))
+	->order('name ASC');
+$db->setQuery($query);
+$results = $db->loadObjectList();
+
+$db = JFactory::getDbo();
+$query = $db->getQuery(true);
+$query
+	->select('country')
+	->from($db->quoteName('yq6g5_users', 'u'))
+	->where($db->quoteName('id') . " = " . $user->id);
+$db->setQuery($query);
+$userCountry = $db->loadResult();
+
 ?>
 <?php if( $showProfileType ){ ?>
 <div class="com-notice">
@@ -44,6 +64,24 @@ $validPassword = JText::sprintf( JText::_( 'JLIB_DATABASE_ERROR_VALID_AZ09', tru
 							}
 					?>
 					<ul class="cFormList cFormHorizontal cResetList">
+						<!-- Campo personalizado -->
+						<li>
+							<label id="jscountrymsg" for="jscountry" class="form-label">Pa&iacute;s de residencia<span class="required-sign">&nbsp;*</span></label>
+							<div class="form-field">
+								<select name="jscountry" id="jscountry" class="required" style="width: 72%">
+									<?php
+									foreach($results as $result){
+										if($result->id == $userCountry){
+											echo '<option selected value="' . $result->id . '">' . $result->name . '</option>';
+										}else{
+											echo '<option value="' . $result->id . '">' . $result->name . '</option>';
+										}
+									}
+									?>
+								</select>
+								<span id="errjsusernamemsg" style="display:none;">&nbsp;</span>
+							</div>
+						</li>
 						<?php
 							foreach ( $fieldGroup as $f )
 							{
