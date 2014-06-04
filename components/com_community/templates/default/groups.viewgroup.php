@@ -437,14 +437,21 @@ $residentCollection = $db2->loadObjectList();
 			<!-- Group's Residentes @ Sidebar: Alejo -->
 			<?php if($residentCollection){ ?>
 				<div class="cModule cGroups-residentCollection app-box">
-					<h3 class="app-box-header"><?php echo JText::sprintf('COM_COMMUNITY_GROUPS_RESIDENTS'); ?></h3>
+					<h3 class="app-box-header"><?php echo JText::sprintf('Residentes'); ?></h3>
 
 					<div class="app-box-content">
 						<ul class="cThumbsList cResetList clearfix">
 							<?php foreach($residentCollection as $residentItem) { ?>
 								<li>
 									<a href="<?php echo CUrlHelper::userLink($residentItem->id); ?>">
-										<img border="0" class="cAvatar jomNameTips" src="<?php echo $residentItem->thumb; ?>" title="<?php echo $residentItem->name;?>" alt="<?php echo $residentItem->name;?>" />
+										<img border="0" class="cAvatar jomNameTips" src="
+										<?php
+											if(isset($residentItem->thumb) and $residentItem->thumb != null){
+												echo $residentItem->thumb;
+											}else{
+												echo "http://redplanetacolombia.com/redPlaneta/images/avatar/thumb_c4a5729e76a0e3f1ab88082a.png";
+											}
+										?>" title="<?php echo $residentItem->name;?>" alt="<?php echo $residentItem->name;?>" />
 									</a>
 								</li>
 								<?php if(--$limit < 1) break; } ?>
