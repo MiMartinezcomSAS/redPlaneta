@@ -436,6 +436,7 @@ $residentCollection = $db2->loadObjectList();
 
 			<!-- Group's Residentes @ Sidebar: Alejo -->
 			<?php if($residentCollection){ ?>
+
 				<div class="cModule cGroups-residentCollection app-box">
 					<h3 class="app-box-header"><?php echo JText::sprintf('Residentes'); ?></h3>
 
@@ -449,7 +450,7 @@ $residentCollection = $db2->loadObjectList();
 											if(isset($residentItem->thumb) and $residentItem->thumb != null){
 												echo $residentItem->thumb;
 											}else{
-												echo "http://redplanetacolombia.com/redPlaneta/images/avatar/thumb_c4a5729e76a0e3f1ab88082a.png";
+												echo "images/avatar/thumb_c4a5729e76a0e3f1ab88082a.png";
 											}
 										?>" title="<?php echo $residentItem->name;?>" alt="<?php echo $residentItem->name;?>" />
 									</a>
