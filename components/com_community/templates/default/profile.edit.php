@@ -52,6 +52,7 @@ $userCountry = $db->loadResult();
 			<div id="basicSet" class="section"> <!-- Profile Basic Setting -->
 				<form name="jsform-profile-edit" id="frmSaveProfile" action="<?php echo CRoute::getURI(); ?>" method="POST" class="cForm community-form-validate" autocomplete="off">
 					<?php
+					$cont = 0;
 					foreach ( $fields as $name => $fieldGroup )
 					{
 							if ($name != 'ungrouped')
@@ -65,6 +66,7 @@ $userCountry = $db->loadResult();
 					?>
 					<ul class="cFormList cFormHorizontal cResetList">
 						<!-- Campo personalizado -->
+						<?php if($cont == 0){ $cont++;?>
 						<li>
 							<label id="jscountrymsg" for="jscountry" class="form-label">Pa&iacute;s de residencia<span class="required-sign">&nbsp;*</span></label>
 							<div class="form-field">
@@ -74,7 +76,12 @@ $userCountry = $db->loadResult();
 										if($result->id == $userCountry){
 											echo '<option selected value="' . $result->id . '">' . $result->name . '</option>';
 										}else{
-											echo '<option value="' . $result->id . '">' . $result->name . '</option>';
+											if($result->id == 10){
+												echo '<option selected value="' . $result->id . '">' . $result->name . '</option>';
+											}else{
+												echo '<option value="' . $result->id . '">' . $result->name . '</option>';
+											}
+
 										}
 									}
 									?>
@@ -82,6 +89,7 @@ $userCountry = $db->loadResult();
 								<span id="errjsusernamemsg" style="display:none;">&nbsp;</span>
 							</div>
 						</li>
+						<?php } ?>
 						<?php
 							foreach ( $fieldGroup as $f )
 							{
