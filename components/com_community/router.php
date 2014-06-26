@@ -62,7 +62,6 @@ function CommunityBuildRoute(&$query)
 				$segments[] = $query['view'];
 			}
 		}
-
 		unset($query['view']);
 	}
 

@@ -28,6 +28,7 @@ require_once COMMUNITY_COM_PATH.'/helpers/owner.php';
 require_once COMMUNITY_COM_PATH.'/helpers/azrul.php';
 require_once COMMUNITY_COM_PATH.'/helpers/string.php';
 require_once COMMUNITY_COM_PATH.'/events/router.php';
+require_once COMMUNITY_COM_PATH.'/clasificados/router.php';
 
 JTable::addIncludePath(COMMUNITY_COM_PATH.'/tables');
 
@@ -120,6 +121,7 @@ if ($task != 'azrul_ajax')
 	// Component configuration
 	$config = array('name' => JString::strtolower(JRequest::getCmd('view', 'frontpage')));
 
+	//print_r($config);exit();
 	// Create the controller
 	$viewController = JString::strtolower($config['name']);
 
@@ -130,8 +132,10 @@ if ($task != 'azrul_ajax')
 		require_once JPATH_COMPONENT.'/controllers/'.$viewController.'.php';
 	}
 
+
 	$viewController = JString::ucfirst($viewController);
 	$viewController = 'Community'.$viewController.'Controller';
+
 
 	// Trigger onBeforeControllerCreate (pass controller name by reference to allow override)
 	$args    = array();
@@ -160,8 +164,10 @@ if ($task != 'azrul_ajax')
 		$mainframe->redirect(JRoute::_('index.php'), false);
 	}
 
+
 	$controller = new $viewController($config);
 	$controller->execute(JRequest::getCmd('task', ''));
+
 
 	//$jConfig = JFactory::getConfig();
 
