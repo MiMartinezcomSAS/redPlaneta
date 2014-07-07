@@ -34,8 +34,84 @@ $jsnutils = JSNTplUtils::getInstance();
 	/*====== Show analytics code configured in template parameter ======*/
 	if ($this->codePosition == 0) echo $this->codeAnalytic;
 	?>
+    <style>.contenedor-popup{
+  display:none;
+  position:fixed;
+  background:#fff;
+  width:1000px;
+  height:500px;
+  top:100px;
+  left:50%;
+  margin-left:-500px;
+  text-align:center;
+  z-index:1000;
+}
+.show{
+  display:block
+}
+
+.contenedor-popup span{
+  cursor:pointer;
+position:absolute;
+font-size:45px;
+color: #498a46;
+right: -25px;
+top: -25px;
+line-height: 20px;
+font-weight: bold;
+background: #fff;
+border-radius: 50%;
+height: 30px;
+width: 30px;
+padding: 10px;
+box-shadow: -3px 1px 3px rgba(3, 3, 3, 0.66);
+  }
+#iframe-mapa{
+	width: 100%;
+	height: 103%;
+	border: 5px solid #122c43
+}
+#pop{
+-webkit-transform: rotate(-90deg);
+-moz-transform: rotate(-90deg);
+-o-transform: rotate(-90deg);
+-ms-transform: rotate(-90deg) ;
+transform: rotate(-90deg) ;
+position: fixed;
+right: -2px;
+top:50%;
+/* width: 150px; */
+border:1px solid #4ea04b;
+margin: -25px -108px;
+background:  #498a46;
+color:#fff;
+font-weight: 900;
+text-align: center;
+padding: 10px 44px 10px 40px;
+display: block;
+z-index: 1000;
+font-size: 20px
+}
+#pop:hover{
+background:  rgba(255,255,255,.2);
+border:1px solid rgba(255,255,255,.2);
+text-decoration: none
+}
+@media screen and (max-width:800px){  
+#pop{
+display:none
+}
+
+</style>
+          <meta property="og:url" content="http://redplanetacolombia.com"/>
+    <meta property="og:title" content="Red Planeta "/>
+    <meta property="og:description"
+          content="Red planeta es una red social de colombianos en el extranjero, te invitamos a unirte y ha compartir tus experiencias, ¡UNETE!."/>
+    <meta property="og:image" content="http://redplanetacolombia.com/templates/jsn_metro_pro/images/ogfacebook.jpg"/>
 </head>
 <body id="jsn-master" class="<?php echo $this->bodyClass ?>">
+<a href="#" title="PopUp" id="pop">SELECCIONA TU PAÍS</a>
+<div class="contenedor-popup"><span id="close">x</span><iframe id="iframe-mapa" src="http://192.185.147.123/~planet/mapaRedPlaneta/"></iframe></div>
 	<a name="top" id="top"></a>
 	<div id="jsn-page">
 	<?php
@@ -644,5 +720,8 @@ $jsnutils = JSNTplUtils::getInstance();
 		echo $this->codeAnalytic;
 	}
 ?>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script>$('#pop').on("click",function(){$(".contenedor-popup").addClass("show")})
+$('#close').on("click",function(){$(".contenedor-popup").removeClass("show")})</script>
 </body>
 </html>

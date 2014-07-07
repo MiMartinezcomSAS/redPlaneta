@@ -1,0 +1,103 @@
+.html
+{
+	background-color: #2B0345;
+	background: -webkit-gradient(linear, center top, center bottom, from(#2B0345),color-stop(100%, #12A794));
+	background: -webkit-linear-gradient(top,#2B0345 ,#12A794 100%);
+	background: -moz-linear-gradient(top,#2B0345 ,#12A794 100%);
+	background: -ms-linear-gradient(top,#2B0345 ,#12A794 100%);
+	background: -o-linear-gradient(top,#2B0345 ,#12A794 100%);
+	background: linear-gradient(to bottom,#2B0345 ,#12A794 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#FF2B0345, endColorstr=#FF12A794, GradientType=0);
+	-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr='#FF2B0345', endColorstr='#FF12A794', GradientType=0)";
+}
+
+#page
+{
+	z-index: 1;
+	width: 541px;
+	min-height: 419px;
+	margin-left: auto;
+	margin-right: auto;
+	padding: 19px 214px 62px 215px;
+}
+
+#u111
+{
+	z-index: 2;
+	width: 541px;
+	left: -1px;
+	position: relative;
+}
+
+#u108-4
+{
+	z-index: 6;
+	width: 541px;
+	min-height: 44px;
+	text-align: center;
+	font-size: 41px;
+	line-height: 49px;
+	color: #FFFFFF;
+	font-family: droid-sans, sans-serif;
+	font-weight: 400;
+	position: relative;
+	margin-right: -10000px;
+	margin-top: 376px;
+}
+
+#pu110
+{
+	z-index: 3;
+	width: 0.01px;
+	position: relative;
+	margin-right: -10000px;
+	left: 83px;
+}
+
+#u110
+{
+	z-index: 0;
+	width: 360px;
+	border-width: 2px;
+	border-style: solid;
+	border-color: #FFFFFF;
+	background-color: #FFFFFF;
+	background-color: rgba(255, 255, 255, 0.5);
+	opacity: 0.4;
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=40)";
+	filter: alpha(opacity=40);
+	position: absolute;
+	top: 0px;
+	bottom: 0px;
+	-pie-background: rgba(255, 255, 255, 0.5);
+}
+
+#pu70
+{
+	width: 0.01px;
+	position: relative;
+	left: 31px;
+	padding-top: 36px;
+	z-index: 2;
+	padding-bottom: 66px;
+}
+
+#u70
+{
+	z-index: 4;
+	width: 313px;
+	position: relative;
+	margin-right: -10000px;
+}
+
+body
+{
+	padding-top: 36px;
+	padding-bottom: 36px;
+}
+
+#page .verticalspacer
+{
+	clear: both;
+}
+

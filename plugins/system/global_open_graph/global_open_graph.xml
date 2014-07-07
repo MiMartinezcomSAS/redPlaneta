@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension version="2.5" type="plugin" group="system" method="upgrade">
+    <name>PLG_SYSTEM_GLOBAL_OPEN_GRAPH</name>
+    <author>mediahof</author>
+    <creationDate>Aug 2013</creationDate>
+    <copyright>(C) 2013 - 2014 mediahof. All rights reserved.</copyright>
+    <license>GNU/GPLv3 http://www.gnu.org/licenses/gpl-3.0.html
+    </license>
+    <authorEmail>mail@mediahof.de</authorEmail>
+    <authorUrl>www.mediahof.de</authorUrl>
+    <version>rev 15</version>
+    <description>PLG_SYSTEM_GLOBAL_OPEN_GRAPH_DESC</description>
+    <files>
+        <filename plugin="global_open_graph">global_open_graph.php</filename>
+        <folder>fields</folder>
+    </files>
+    <updateservers>
+        <server type="collection" priority="1" name="mediahof">http://extensions.mediahof.de/extensions.xml</server>
+    </updateservers>
+    <languages folder="language">
+        <language tag="en-GB">en-GB/en-GB.plg_system_global_open_graph.ini</language>
+        <language tag="en-GB">en-GB/en-GB.plg_system_global_open_graph.sys.ini</language>
+    </languages>
+    <config>
+        <fields name="params" addfieldpath="/plugins/system/global_open_graph/fields/">
+            <fieldset name="basic">
+            <field size="50" type="doc" href="http://fbdevwiki.com/wiki/Open_Graph_protocol#Properties" />
+                <field size="50" name="og:url" filter="url" />
+                <field size="50" name="og:title" filter="string" />
+                <field size="50" name="og:site_name" filter="string" />
+                <field size="50" name="og:type" filter="string" />
+                <field size="50" name="og:description" filter="string" />
+                <field size="50" name="og:locale" filter="string" />
+                <field size="50" name="og:locale:alternate" filter="string" />
+            </fieldset>
+            <fieldset name="location" label="PLG_SYSTEM_GLOBAL_OPEN_GRAPH_LOCATION_LABEL">
+            <field size="50" type="doc" href="http://fbdevwiki.com/wiki/Open_Graph_protocol#Locations" />
+                <field size="50" name="og:street-address" filter="string" />
+                <field size="50" name="og:postal-code" filter="string" />
+                <field size="50" name="og:city" filter="string" />
+                <field size="50" name="og:country-name" filter="string" />
+                <field size="50" name="og:latitude" filter="float" />
+                <field size="50" name="og:longitude" filter="float" />
+            </fieldset>
+            <fieldset name="contact" label="PLG_SYSTEM_GLOBAL_OPEN_GRAPH_CONTACT_LABEL">
+            <field size="50" type="doc" href="http://fbdevwiki.com/wiki/Open_Graph_protocol#Contact_Information" />
+                <field size="50" name="og:email_address" filter="email" />
+                <field size="50" name="og:phone_number" filter="string" />
+                <field size="50" name="og:fax_number" filter="string" />
+            </fieldset>
+            <fieldset name="image" label="PLG_SYSTEM_GLOBAL_OPEN_GRAPH_IMAGE_LABEL">
+            <field size="50" type="doc" href="http://ogp.me/#structured" />
+                <field size="50" name="og:image" filter="url" />
+                <field size="50" name="og:image:secure_url" filter="url" />
+                <field size="50" name="og:image:type" filter="string" />
+                <field size="50" name="og:image:width" filter="integer" />
+                <field size="50" name="og:image:height" filter="integer" />
+            </fieldset>
+            <fieldset name="video" label="PLG_SYSTEM_GLOBAL_OPEN_GRAPH_VIDEO_LABEL">
+            <field size="50" type="doc" href="http://fbdevwiki.com/wiki/Open_Graph_protocol#Videos" />
+                <field size="50" name="og:video" filter="url" />
+                <field size="50" name="og:video:secure_url" filter="url" />
+                <field size="50" name="og:video:type" filter="string" />
+                <field size="50" name="og:video:width" filter="integer" />
+                <field size="50" name="og:video:height" filter="integer" />
+            </fieldset>
+            <fieldset name="audio" label="PLG_SYSTEM_GLOBAL_OPEN_GRAPH_AUDIO_LABEL">
+            <field size="50" type="doc" href="http://fbdevwiki.com/wiki/Open_Graph_protocol#Audio" />
+                <field size="50" name="og:audio" filter="url" />
+                <field size="50" name="og:audio:secure_url" filter="url" />
+                <field size="50" name="og:audio:type" filter="string" />
+            </fieldset>
+            <fieldset name="facebook" label="PLG_SYSTEM_GLOBAL_OPEN_GRAPH_FACEBOOK_LABEL">
+            <field size="50" type="doc" href="https://developers.facebook.com/docs/opengraph/" />
+                <field size="50" name="fb:page_id" filter="integer" />
+                <field size="50" name="fb:app_id" filter="integer" />
+                <field size="50" name="fb:admins" filter="string" />
+            </fieldset>
+            <fieldset name="twitter" label="PLG_SYSTEM_GLOBAL_OPEN_GRAPH_TWITTER_LABEL">
+            <field size="50" type="doc" href="https://dev.twitter.com/docs/cards/getting-started" />
+                <field name="twitter:card" type="list">
+                    <option value="">JSELECT</option>
+                    <option value="summary">summary</option>
+                    <option value="photo">photo</option>
+                    <option value="gallery">gallery</option>
+                    <option value="product">product</option>
+                    <option value="app">app</option>
+                    <option value="player">player</option>
+                </field>
+                <field size="50" name="twitter:site" filter="string" />
+                <field size="50" name="twitter:site:id" filter="integer" />
+                <field size="50" name="twitter:creator" filter="string" />
+                <field size="50" name="twitter:creator:id" filter="integer" />
+            </fieldset>
+        </fields>
+    </config>
+</extension>

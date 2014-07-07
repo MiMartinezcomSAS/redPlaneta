@@ -4,4 +4,4 @@
 
 localhost	FALSE	/	FALSE	0	21d7cf438f119d8263138f3ba9e8f993	mnld21kqg69d3na664p0qtg5q0
 #HttpOnly_redplanetacolombia.com	FALSE	/	FALSE	0	ad356d1dbaecef584b3ff244079a17cf	7f6f6b8eb8ce3e99cb9650d9abdf0221
-redplanetacolombia.com	FALSE	/	FALSE	1397177146	currentURI	http%3A%2F%2Fredplanetacolombia.com%2Findex.php%3Fpoweradmin%3D1%26vsm_changeposition%3D1%26tp%3D1
+redplanetacolombia.com	FALSE	/	FALSE	1402195461	currentURI	http%3A%2F%2Fredplanetacolombia.com%2FredPlaneta%2Findex.php%3Fpoweradmin%3D1%26vsm_changeposition%3D1%26tp%3D1

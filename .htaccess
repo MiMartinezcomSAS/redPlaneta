@@ -74,4 +74,5 @@ RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule .* index.php [L]
 #
 ## End - Joomla! core SEF Section.
-#AddHandler application/x-httpd-php53 .php
+AddHandler application/x-httpd-php53 .php
+

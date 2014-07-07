@@ -1,0 +1,17 @@
+<manifest alg="2" build="329" opt="false" iceEnabled="true">
+  <folder name="css">
+    <file name="site_global.css" crc="417434784"/>
+    <file name="index.css" crc="317923280" ref="index"/>
+  </folder>
+  <folder name="scripts">
+    <file name="jquery-1.8.3.min.js" crc="209076791" ref="index"/>
+    <file name="museutils.js" crc="3865766194" ref="index"/>
+    <file name="pie.js" crc="3827607177" ref="index"/>
+    <file name="jquery.watch.js" crc="4068933136" ref="index"/>
+  </folder>
+  <folder name="images">
+    <file name="logotv.png" crc="4102827717" ref="index"/>
+    <file name="inicio-favicon.ico" crc="17156912" ref="index"/>
+  </folder>
+  <file name="index.html" crc="4034300366" mt="1403824230534" redirect="true"/>
+</manifest>

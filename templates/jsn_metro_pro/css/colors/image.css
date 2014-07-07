@@ -5,14 +5,20 @@
 */
 /* ============================== DEFAULT HTML ============================== */
 a {
-	color: #006DBC;
+	color: #fff;
+}
+a:hover{
+	color: #fff;
+	text-decoration: none;
 }
 /* ============================== LAYOUT ============================== */
 #jsn-master {
-	background: url(../../images/backgrounds/main-background.jpg) 0 0 / cover repeat;
+	/*background: url(../../images/backgrounds/main-background.jpg) 
+0 0 / cover repeat;
 	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(
     src='templates/jsn_metro_pro/images/backgrounds/main-background.jpg',
-    sizingMethod='scale');
+    sizingMethod='scale');*/
+ background:linear-gradient(#2b0345, #12a794);
     -ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(
 	src='templates/jsn_metro_pro/images/backgrounds/main-background.jpg',
 	sizingMethod='scale')";
